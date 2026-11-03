@@ -17,7 +17,7 @@ import { navigation } from "@/config/admin";
 export default function AdminSidebar() {
   const { user, logout } = useAuth();
   /* ────────── workspace state ────────── */
-  const { page, setNotice, drawer, active, navigate } = useAdminContext();
+  const { page, drawer, active, navigate } = useAdminContext();
 
   return (
     <aside className={`sidebar ${drawer ? "open" : ""}`}>
@@ -77,13 +77,9 @@ export default function AdminSidebar() {
       </div>
       <button
         className="help-link"
-        onClick={() =>
-          setNotice(
-            "Setup guide: see alpine-admin/README.md. Printer addresses must be configured on site."
-          )
-        }
+        onClick={() => navigate("নির্দেশিকা")}
       >
-        <CircleHelp size={18} /> Help & setup guide
+        <CircleHelp size={18} /> ব্যবহারের নির্দেশিকা
       </button>
       <div className="profile">
         <span className="avatar">A</span>

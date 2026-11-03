@@ -12,7 +12,7 @@ export function useAdminWorkspace() {
   const router = useRouter();
   const pathname = usePathname();
   const page =
-    navigation.find((item) => item.href === pathname)?.name || "Overview";
+    navigation.find((item) => item.href === pathname || pathname.startsWith(item.href + "/"))?.name || "Overview";
 
   const [data, setData] = useState<AppData>(initialData);
   const [revision, setRevision] = useState(0);

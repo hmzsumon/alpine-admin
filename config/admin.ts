@@ -10,6 +10,7 @@ import {
   Users,
   ShieldCheck,
   PackageCheck,
+  CircleHelp,
 } from "lucide-react";
 import type { Station } from "@/types";
 
@@ -25,6 +26,7 @@ export const navigation = [
   { name: "Printers", href: "/printers", icon: Printer },
   { name: "Staff & permissions", href: "/users", icon: Users },
   { name: "My account", href: "/profile", icon: ShieldCheck },
+  { name: "নির্দেশিকা", href: "/guide", icon: CircleHelp },
 ];
 
 /* ────────── kitchen stations ────────── */
@@ -33,6 +35,7 @@ export const storageKey = "alpine-admin-demo-v1";
 
 /* ────────── page descriptions ────────── */
 export const heading: Record<string, string> = {
+  "নির্দেশিকা": "রেস্টুরেন্ট পরিচালনার প্রতিটি কাজ শিখুন সহজ বাংলা ও উদাহরণে।",
   Overview: "Your restaurant, at a glance.",
   Orders: "Every order. One place.",
   "Menu & categories": "A menu made for every craving.",

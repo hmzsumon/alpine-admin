@@ -45,5 +45,6 @@ export const config = {
     "/printers/:path*",
     "/users/:path*",
     "/profile/:path*",
+    "/guide/:path*",
   ],
 };

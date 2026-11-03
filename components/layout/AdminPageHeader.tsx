@@ -21,7 +21,7 @@ export default function AdminPageHeader() {
         <h1>{page === "Overview" ? "Overview" : page}</h1>
         <p>{heading[page]}</p>
       </div>
-      <div className="heading-actions">
+      {page !== "নির্দেশিকা" && <div className="heading-actions">
         <select
           aria-label="Reporting period"
           value={range}
@@ -42,7 +42,7 @@ export default function AdminPageHeader() {
         >
           <Plus size={17} /> New order
         </button>
-      </div>
+      </div>}
     </div>
   );
 }
