@@ -15,6 +15,7 @@ export type MenuItem = {
   note?: string;
 };
 export type Order = {
+  orderType?: "dine_in" | "takeaway"; parcelToken?: string; customerName?: string; customerPhone?: string; packingCharge?: number; paymentStatus?: "unpaid" | "paid"; paidAt?: string; paidBy?: string; deliveredAt?: string;
   cancelReason?: string;
   cancelPrepared?: boolean;
   id: string;
@@ -24,6 +25,7 @@ export type Order = {
   createdAt: string;
   status: "New" | "Preparing" | "Ready" | "Paid" | "Cancelled";
   items: {
+    fulfillment?: "dine_in" | "parcel";
     menuId: string;
     name: string;
     nameBn?: string;

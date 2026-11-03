@@ -1640,3 +1640,16 @@ label.check-label {
 .kitchen-setup-card > p { color: var(--muted); margin-bottom: 7px; }
 .kitchen-setup-card .resource-actions { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 13px; }
 @media (max-width: 640px) { .category-management { padding: 16px; } .category-manage-chip { flex: 1 1 160px; } .kitchen-setup-grid { padding: 0 16px 16px; } }
+
+/* ────────── mixed dine-in / parcel order controls ────────── */
+.order-fulfillment-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.parcel-label { color: #ffce7b; font-weight: 600; }
+.parcel-picker-row { gap: 20px; flex-wrap: wrap; }
+.parcel-quantity-options { display: flex; gap: 20px; flex-wrap: wrap; }
+.parcel-quantity-options small { display: block; margin-bottom: 7px; font-size: 12px; }
+.parcel-order-preview { padding: 15px; background: #181c25; border: 1px solid var(--border); border-radius: 10px; line-height: 2; margin-top: 16px; }
+.order-line-details { min-width: 210px; max-width: 350px; margin-top: 10px; line-height: 1.9; }
+.order-line-details summary { cursor: pointer; color: #77d9b9; }
+.order-line-details p { margin: 9px 0; }
+.parcel-report { display: flex; flex-wrap: wrap; gap: 20px; padding: 18px 24px; border-top: 1px solid var(--border); color: var(--muted); }
+.parcel-report strong { color: var(--text); margin-left: 6px; }

@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { navigation } from "@/config/admin";
 import { initialData } from "@/data/menu";
 import { loadWorkspace, persistWorkspace } from "@/lib/adminWorkspace";
-import { total } from "@/utils/format";
+import { total, paidOrder } from "@/utils/format";
 import type { AppData, MenuItem, Order } from "@/types";
 import { defaultTables, defaultKitchens } from "@/config/restaurantSetup";
 
@@ -119,7 +119,7 @@ export function useAdminWorkspace() {
   );
 
   const orders = data.orders.filter((o) =>
-    `${o.id} ${o.table} ${o.waiter}`
+    `${o.id} ${o.table} ${o.parcelToken || ""} ${o.customerName || ""} ${o.customerPhone || ""} ${o.waiter}`
       .toLowerCase()
       .includes(search.toLowerCase())
   );
@@ -138,7 +138,7 @@ export function useAdminWorkspace() {
       : age < 7 * 86400000;
   });
 
-  const paid = periodOrders.filter((o) => o.status === "Paid");
+  const paid = periodOrders.filter((o) => paidOrder(o) && o.status !== "Cancelled");
 
   const sales = paid.reduce((s, o) => s + total(o), 0);
 
@@ -166,7 +166,7 @@ export function useAdminWorkspace() {
           sales: data.orders
             .filter(
               (o) =>
-                o.status === "Paid" &&
+                paidOrder(o) && o.status !== "Cancelled" &&
                 new Date(o.createdAt).toLocaleDateString("en-CA", {
                   timeZone: "Asia/Dhaka",
                 }) === day
@@ -187,7 +187,7 @@ export function useAdminWorkspace() {
 
   function exportOrders() {
     const csv =
-      "Order,Table,Waiter,Status,Total\n" +
+      "Order,Table,Waiter,Status,Total,Type,Parcel token,Packing charge,Payment\n" +
       data.orders
         .map((o) =>
           [
@@ -198,7 +198,7 @@ export function useAdminWorkspace() {
               o.waiter.replaceAll('"', '""')
             }"`,
             o.status,
-            total(o),
+            total(o), o.orderType === "takeaway" ? "takeaway" : o.items.some((l) => l.fulfillment === "parcel") ? "mixed" : "dine_in", o.parcelToken || "", o.packingCharge || 0, paidOrder(o) ? "Paid" : "Unpaid",
           ].join(",")
         )
         .join("\n");
@@ -229,15 +229,18 @@ export function useAdminWorkspace() {
     return saved;
   }
 
-  const openOrder = (table?: string) => {
+  const openOrder = (table?: string, existingId?: string) => {
+    setAppendOrderId(existingId || null);
     setCart({});
     setSearch("");
     setModal("order");
     setOrderTable(table || tables[0]?.id || "");
   };
 
+  const [appendOrderId, setAppendOrderId] = useState<string | null>(null);
   const [orderTable, setOrderTable] = useState("T-01");
   return {
+    appendOrderId,
     tables,
     kitchens,
     stationName,
