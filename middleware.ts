@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { canAccessPath, landingPath } from "@/config/access";
 import type { AuthUser } from "@/types/auth";
+import { apiOrigin } from "@/lib/api-origin";
 
 /* ────────── verify the live session on every protected route request ────────── */
 export async function middleware(request: NextRequest) {
@@ -14,7 +15,7 @@ export async function middleware(request: NextRequest) {
   let user: AuthUser | null = null;
   try {
     const response = await fetch(
-      (process.env.API_URL || "http://127.0.0.1:4100") + "/api/auth/me",
+      apiOrigin() + "/api/auth/me",
       { headers: { Authorization: "Bearer " + token }, cache: "no-store" }
     );
     if (response.ok) user = (await response.json()).user;

@@ -2,12 +2,12 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import type { AuthUser } from "@/types/auth";
+import { apiOrigin } from "@/lib/api-origin";
 export const SESSION_COOKIE = "alpine_session";
 
 /* ────────── server-only authenticated API requests ────────── */
 export async function backend(path: string, options: RequestInit = {}) {
-  const origin = process.env.API_URL;
-  if (!origin) throw new Error("API_URL is not configured");
+  const origin = apiOrigin();
   return fetch(origin + path, {
     ...options,
     cache: "no-store",
@@ -27,9 +27,9 @@ export function validOrigin(request: NextRequest) {
 export function cookieOptions() {
   return {
     httpOnly: true,
-    secure:
+    secure: Boolean(process.env.VERCEL) || (
       process.env.COOKIE_SECURE !== "false" &&
-      process.env.NODE_ENV === "production",
+      process.env.NODE_ENV === "production"),
     sameSite: "strict" as const,
     path: "/",
     maxAge: 8 * 60 * 60,
