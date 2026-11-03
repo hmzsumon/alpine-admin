@@ -16,6 +16,7 @@ export default function OrderForm() {
   /* ────────── workspace state ────────── */
   const {
     data,
+    tables,
     setNotice,
     search,
     setSearch,
@@ -70,8 +71,8 @@ export default function OrderForm() {
             value={orderTable}
             onChange={(e) => setOrderTable(e.target.value)}
           >
-            {Array.from({ length: 24 }, (_, i) => (
-              <option key={i}>{`T-${String(i + 1).padStart(2, "0")}`}</option>
+            {tables.map((table) => (
+              <option key={table.id} value={table.id}>{table.name} · {table.id}</option>
             ))}
           </select>
         </label>

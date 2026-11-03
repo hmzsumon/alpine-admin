@@ -10,7 +10,7 @@ import { Check, Printer } from "lucide-react";
 export default function PrinterManagement() {
   const { can } = useAuth();
   /* ────────── workspace state ────────── */
-  const { data, setNotice, busy, save } = useAdminContext();
+  const { data, setNotice, busy, save, kitchens, stationName } = useAdminContext();
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function PrinterManagement() {
                 await save({
                   ...data,
                   printers: data.printers.map((item) =>
-                    item.id === p.id ? { ...p, ip, enabled } : item
+                    item.id === p.id ? { ...p, ip, enabled, station: String(form.get("station")) } : item
                   ),
                 })
               )
@@ -63,8 +63,9 @@ export default function PrinterManagement() {
             </div>
             <h3>{p.name}</h3>
             <p>
-              {p.floor} · {p.station}
+              {p.floor} · {stationName(p.station)}
             </p>
+            <label>কিচেন / কাউন্টার<select name="station" defaultValue={p.station}>{kitchens.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}<option value="Cash Counter">Cash Counter</option>{!kitchens.some((k) => k.id === p.station) && p.station !== "Cash Counter" && <option value={p.station}>{p.station} (ডিলিট করা কিচেন)</option>}</select></label>
             <label>
               Printer IP address
               <input

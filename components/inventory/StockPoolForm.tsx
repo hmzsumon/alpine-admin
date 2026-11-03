@@ -2,13 +2,14 @@
 "use client";
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
-import { stations } from "@/config/admin";
+import { useAdminContext } from "@/context/AdminContext";
 import type { MenuItem } from "@/types";
 import type { StockCommand, StockPool } from "@/types/inventory";
 export default function StockPoolForm({ pool, pools, menu, initialMenuId, command, busy, onDone }: {
   pool?: StockPool; pools: StockPool[]; menu: MenuItem[]; initialMenuId?: string;
   command: StockCommand; busy: boolean; onDone: () => void;
 }) {
+  const { kitchens } = useAdminContext();
   const item = menu.find((item) => item.id === initialMenuId);
   const [links, setLinks] = useState(pool?.links || (item ? [{ menuId: item.id, units: 1 }] : []));
   const [selected, setSelected] = useState("");
@@ -23,7 +24,7 @@ export default function StockPoolForm({ pool, pools, menu, initialMenuId, comman
   }}>
     <div className="form-grid">
       <label>Stock group name *<input name="name" required minLength={3} maxLength={100} defaultValue={pool?.name || item?.name} placeholder="e.g. Mug Dal" /></label>
-      <label>Kitchen station<select name="station" defaultValue={pool?.station || item?.station || "Main Kitchen"}>{stations.map((station) => <option key={station}>{station}</option>)}</select></label>
+      <label>Kitchen station<select name="station" defaultValue={pool?.station || item?.station || kitchens[0]?.id || ""}>{kitchens.map((station) => <option key={station.id} value={station.id}>{station.name}</option>)}</select></label>
       <label>Tracking mode<select value={mode} onChange={(event) => setMode(event.target.value as StockPool["mode"])}><option value="counted">Count portions / pieces / bottles</option><option value="availability">Available / Sold out only</option></select></label>
       <label>Stock unit *<input required name="unit" maxLength={30} defaultValue={pool?.unit || "portion"} placeholder="portion, piece, bottle, half grill" /></label>
     </div>

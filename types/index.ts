@@ -1,6 +1,8 @@
 /* ────────── shared contracts ────────── */
 import type { Inventory, StockAvailability } from "@/types/inventory";
-export type Station = "Main Kitchen" | "BBQ" | "Drinks";
+export type Station = string;
+export type RestaurantTable = { id: string; name: string; floor: string; seats: number };
+export type Kitchen = { id: string; name: string; floor: string };
 export type MenuItem = {
   nameBn?: string;
   imageUrl?: string;
@@ -40,6 +42,10 @@ export type Printer = {
   enabled: boolean;
 };
 export type AppData = {
+  tables?: RestaurantTable[];
+  kitchens?: Kitchen[];
+  retiredTableIds?: string[];
+  retiredKitchenIds?: string[];
   inventory?: Inventory;
   stockSummary?: Record<string, StockAvailability>;
   categories?: string[];

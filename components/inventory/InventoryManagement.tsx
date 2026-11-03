@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { AlertTriangle, CheckCircle2, ClipboardCheck, PackageCheck, Plus, RefreshCw, Sunrise, Sunset } from "lucide-react";
 import { useAuth } from "@/providers/AuthProvider";
+import { useAdminContext } from "@/context/AdminContext";
 import { useInventory } from "@/hooks/useInventory";
 import SearchBox from "@/components/ui/SearchBox";
 import InventoryDialog from "@/components/inventory/InventoryDialog";
@@ -14,6 +15,7 @@ import type { StockPool } from "@/types/inventory";
 type Dialog = { kind: "setup"; pool?: StockPool; menuId?: string } | { kind: "move"; pool: StockPool; action: string } | { kind: "open" | "close" };
 
 export default function InventoryManagement() {
+  const { kitchens, stationName } = useAdminContext();
   const stock = useInventory(), { can } = useAuth();
   const [dialog, setDialog] = useState<Dialog | null>(null), [search, setSearch] = useState(""), [station, setStation] = useState("All stations"), [selected, setSelected] = useState("");
   const busyRef = useRef(false); busyRef.current = stock.busy;
@@ -53,11 +55,11 @@ export default function InventoryManagement() {
       { label: "Open orders", value: data.pendingOrders, detail: "Resolve before daily closing", icon: ClipboardCheck },
     ].map((card) => <section className="panel inventory-summary" key={card.label}><div><small>{card.label}</small><strong>{card.value}</strong><p>{card.detail}</p></div><card.icon size={22} /></section>)}</div>
     <section className="panel"><div className="panel-title"><div><h3>Live food stock <span className="count-pill">{inventory.pools.length}</span></h3><p>Available = physical balance − reserved orders · Quantities remain in each item's own unit</p></div></div>
-      <div className="filters"><SearchBox value={search} onChange={setSearch} /><select aria-label="Stock kitchen station" value={station} onChange={(event) => setStation(event.target.value)}>{["All stations", "Main Kitchen", "BBQ", "Drinks"].map((station) => <option key={station}>{station}</option>)}</select></div>
+      <div className="filters"><SearchBox value={search} onChange={setSearch} /><select aria-label="Stock kitchen station" value={station} onChange={(event) => setStation(event.target.value)}>{["All stations", ...kitchens.map((k) => k.id)].map((station) => <option key={station} value={station}>{stationName(station)}</option>)}</select></div>
       <div className="table-scroll"><table><thead><tr><th>Stock item</th><th>Kitchen</th><th>Physical balance</th><th>Reserved</th><th>Available</th><th>Status</th><th>Actions</th></tr></thead><tbody>{pools.map((pool) => {
         const amount = available(pool), out = pool.soldOut || (pool.mode === "counted" && amount <= 0), closed = pool.mode === "counted" && !inventory.day;
         return <tr key={pool.id}><td><strong>{pool.name}</strong><small className="item-note">{pool.links.map((link) => `${data.menu.find((item) => item.id === link.menuId)?.name || "Archived item"}${link.units > 1 ? ` ×${link.units}` : ""}`).join(" · ")}</small></td>
-          <td>{pool.station}</td><td>{pool.mode === "counted" ? `${pool.onHand} ${pool.unit}` : "Availability only"}</td><td>{pool.mode === "counted" ? reserved(pool) : "—"}</td><td><strong>{pool.mode === "counted" ? `${amount} ${pool.unit}` : "Manual"}</strong></td>
+          <td>{stationName(pool.station)}</td><td>{pool.mode === "counted" ? `${pool.onHand} ${pool.unit}` : "Availability only"}</td><td>{pool.mode === "counted" ? reserved(pool) : "—"}</td><td><strong>{pool.mode === "counted" ? `${amount} ${pool.unit}` : "Manual"}</strong></td>
           <td><span className={`badge ${closed || out ? "Cancelled" : "Ready"}`}>{closed ? "Day closed" : out ? "Sold out" : pool.mode === "counted" && amount <= pool.lowAt ? "Low stock" : "Available"}</span></td>
           <td><div className="inventory-row-actions">{can("inventory:operate") && <><button type="button" className="text-button" disabled={stock.busy}
             onClick={() => void stock.command({ action: "availability", poolId: pool.id, soldOut: !pool.soldOut })}>{pool.soldOut ? "Mark available" : "Mark sold out"}</button>

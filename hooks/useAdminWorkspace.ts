@@ -6,6 +6,7 @@ import { initialData } from "@/data/menu";
 import { loadWorkspace, persistWorkspace } from "@/lib/adminWorkspace";
 import { total } from "@/utils/format";
 import type { AppData, MenuItem, Order } from "@/types";
+import { defaultTables, defaultKitchens } from "@/config/restaurantSetup";
 
 /* ────────── workspace state and actions ────────── */
 export function useAdminWorkspace() {
@@ -15,6 +16,9 @@ export function useAdminWorkspace() {
     navigation.find((item) => item.href === pathname || pathname.startsWith(item.href + "/"))?.name || "Overview";
 
   const [data, setData] = useState<AppData>(initialData);
+  const tables = data.tables ?? defaultTables;
+  const kitchens = data.kitchens ?? defaultKitchens;
+  const stationName = (id: string) => kitchens.find((k) => k.id === id)?.name || id;
   const [revision, setRevision] = useState(0);
   const readVersion = useRef(0);
 
@@ -229,11 +233,14 @@ export function useAdminWorkspace() {
     setCart({});
     setSearch("");
     setModal("order");
-    setOrderTable(table || "T-01");
+    setOrderTable(table || tables[0]?.id || "");
   };
 
   const [orderTable, setOrderTable] = useState("T-01");
   return {
+    tables,
+    kitchens,
+    stationName,
     paid,
     page,
     data,

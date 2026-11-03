@@ -2,13 +2,15 @@
 "use client";
 import { useState } from "react";
 import type { AuthUser, StaffRole } from "@/types/auth";
+import { useAdminContext } from "@/context/AdminContext";
 import AssignmentPicker from "./AssignmentPicker";
 export default function StaffAccountForm({ staff, roles, busy, save, cancel }: { staff?: AuthUser; roles: StaffRole[]; busy: boolean; save: (body: unknown) => Promise<boolean>; cancel?: () => void }) {
+  const { tables: restaurantTables, kitchens } = useAdminContext();
   const [stations, setStations] = useState(staff?.stations || []);
-  const [tables, setTables] = useState(staff?.tables || (staff ? Array.from({ length: 24 }, (_, i) => `T-${String(i + 1).padStart(2, "0")}`) : []));
+  const [tables, setTables] = useState(staff?.tables || (staff ? restaurantTables.map((t) => t.id) : []));
   return <form onSubmit={async (event) => {
     event.preventDefault(); const form = event.currentTarget; const values = Object.fromEntries(new FormData(form));
-    const body: Record<string, unknown> = { ...values, stations, tables }; if (staff && !values.password) delete body.password;
+    const body: Record<string, unknown> = { ...values, stations: stations.filter((id) => kitchens.some((k) => k.id === id)), tables: tables.filter((id) => restaurantTables.some((t) => t.id === id)) }; if (staff && !values.password) delete body.password;
     if (await save(body)) { if (!staff) { form.reset(); setStations([]); setTables([]); } }
   }}>
     <label>কর্মীর নাম<input name="name" required minLength={2} maxLength={80} defaultValue={staff?.name} /></label>

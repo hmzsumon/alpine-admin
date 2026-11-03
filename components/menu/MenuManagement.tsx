@@ -4,7 +4,8 @@
 /* ────────── imports ────────── */
 import { useAuth } from "@/providers/AuthProvider";
 import { useAdminContext } from "@/context/AdminContext";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
+import CategoryManagement from "./CategoryManagement";
 import { money } from "@/utils/format";
 import SearchBox from "@/components/ui/SearchBox";
 import Empty from "@/components/ui/EmptyState";
@@ -24,6 +25,7 @@ export default function MenuManagement() {
     setEditing,
     categories,
     filteredMenu,
+    save, busy, mode, setNotice, stationName,
   } = useAdminContext();
 
   return (
@@ -52,6 +54,7 @@ export default function MenuManagement() {
         </button>
         </div>
       </div>
+      <CategoryManagement />
       <div className="filters">
         <SearchBox value={search} onChange={setSearch} />
         <select
@@ -92,7 +95,7 @@ export default function MenuManagement() {
                 </td>
                 <td>{i.category}</td>
                 <td>
-                  <span className="station-tag">{i.station}</span>
+                  <span className="station-tag">{stationName(i.station)}</span>
                 </td>
                 <td>
                   {i.price === null ? (
@@ -110,6 +113,7 @@ export default function MenuManagement() {
                     : data.stockSummary[i.id].reason}</small>}
                 </td>
                 <td>
+                  <div className="resource-actions">
                   <button
                     className="text-button"
                     disabled={!can("menu:manage")}
@@ -120,6 +124,11 @@ export default function MenuManagement() {
                   >
                     Edit
                   </button>
+                  {can("menu:manage") && <button type="button" className="text-button danger-text" disabled={busy || mode !== "database"} onClick={async () => {
+                    if (!window.confirm(`“${i.nameBn || i.name}” ডিলিট করবেন? পুরোনো অর্ডার ও স্টকের ইতিহাস থাকবে। চলমান অর্ডার থাকলে আগে শেষ করতে হবে।`)) return;
+                    if (await save({ ...data, menu: data.menu.filter((item) => item.id !== i.id) })) setNotice("আইটেম ডিলিট হয়েছে। পুরোনো অর্ডারের হিসাব সংরক্ষিত আছে।");
+                  }}><Trash2 size={14} /> ডিলিট</button>}
+                  </div>
                 </td>
               </tr>
             ))}

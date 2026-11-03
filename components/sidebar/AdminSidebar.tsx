@@ -17,7 +17,7 @@ import { navigation } from "@/config/admin";
 export default function AdminSidebar() {
   const { user, logout } = useAuth();
   /* ────────── workspace state ────────── */
-  const { page, drawer, active, navigate } = useAdminContext();
+  const { page, drawer, active, navigate, kitchens } = useAdminContext();
 
   return (
     <aside className={`sidebar ${drawer ? "open" : ""}`}>
@@ -57,7 +57,7 @@ export default function AdminSidebar() {
           ))}
       </nav>
       <div className="sidebar-note">
-        <span className="signal" /> THREE KITCHEN STATIONS
+        <span className="signal" /> {kitchens.length} KITCHEN STATIONS
         <p>
           One connected restaurant.
           <br />

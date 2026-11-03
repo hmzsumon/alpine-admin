@@ -20,7 +20,7 @@ export async function persistWorkspace(
   revision: number
 ): Promise<WorkspaceResult> {
   const changes: Partial<AppData> = {};
-  for (const key of ["categories", "menu", "orders", "expenses", "printers"] as const) {
+  for (const key of ["categories", "menu", "orders", "expenses", "printers", "tables", "kitchens"] as const) {
     if (JSON.stringify(next[key]) !== JSON.stringify(previous[key]))
       Object.assign(changes, { [key]: next[key] });
   }

@@ -7,11 +7,11 @@ import { useRef, useState } from "react";
 import MenuImagePicker from "@/components/menu/MenuImagePicker";
 
 import type { MenuItem, Station } from "@/types";
-import { stations } from "@/config/admin";
+
 
 export default function MenuItemForm() {
   /* ────────── workspace state ────────── */
-  const { data, setNotice, setModal, editing, busy, save, categories, category } =
+  const { data, setNotice, setModal, editing, busy, save, categories, category, kitchens } =
     useAdminContext();
   const [imageUrl, setImageUrl] = useState(editing?.imageUrl || "");
   const [uploading, setUploading] = useState(false);
@@ -107,10 +107,10 @@ export default function MenuItemForm() {
         Kitchen station *
         <select
           name="station"
-          defaultValue={editing?.station || "Main Kitchen"}
+          defaultValue={editing?.station || kitchens[0]?.id || ""}
         >
-          {stations.map((s) => (
-            <option key={s}>{s}</option>
+          {kitchens.map((s) => (
+            <option key={s.id} value={s.id}>{s.name}</option>
           ))}
         </select>
       </label>

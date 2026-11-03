@@ -22,6 +22,8 @@ export type Permission =
   | "orders:cancel"
   | "payments:collect"
   | "tables:read"
+  | "tables:manage"
+  | "kitchen:manage"
   | "kitchen:read"
   | "expenses:read"
   | "expenses:create"
