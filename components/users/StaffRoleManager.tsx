@@ -1,0 +1,21 @@
+/* ── Component: StaffRoleManager ─────────────────────────────────────── */
+"use client";
+import { useState } from "react";
+import type { Permission, StaffRole } from "@/types/auth";
+const labels: Record<string, string> = { "operations:read": "স্টেশনের অর্ডার দেখা", "operations:prepare": "অর্ডার গ্রহণ ও প্রস্তুত করা", "operations:serve": "সংগ্রহ ও সার্ভ করা", "orders:read": "অর্ডার দেখা", "orders:create": "অর্ডার নেওয়া", "orders:update": "অর্ডার পরিচালনা", "orders:cancel": "অর্ডার বাতিল", "menu:read": "মেনু দেখা", "menu:manage": "মেনু সম্পাদনা", "tables:read": "টেবিল দেখা", "payments:collect": "বিল গ্রহণ", "inventory:read": "স্টক দেখা", "inventory:operate": "স্টক এন্ট্রি", "inventory:manage": "স্টক সেটআপ", "inventory:close": "স্টক ক্লোজিং", "printers:read": "প্রিন্টার দেখা", "printers:manage": "প্রিন্টার পরিবর্তন", "workspace:read": "অ্যাডমিন প্রবেশ", "overview:read": "ড্যাশবোর্ড", "kitchen:read": "কিচেন দেখা", "expenses:read": "খরচ দেখা", "expenses:create": "খরচ এন্ট্রি", "expenses:manage": "খরচ সম্পাদনা" };
+export default function StaffRoleManager({ roles, permissions, busy, save }: { roles: StaffRole[]; permissions: Permission[]; busy: boolean; save: (body: unknown, id?: string) => Promise<boolean> }) {
+  const [editing, setEditing] = useState<StaffRole>(); const [selected, setSelected] = useState<Permission[]>(["operations:read", "operations:prepare"]);
+  const [mode, setMode] = useState("operator"), [base, setBase] = useState("kitchen"), [name, setName] = useState(""), [active, setActive] = useState(true);
+  const reset = () => { setEditing(undefined); setName(""); setBase("kitchen"); setMode("operator"); setSelected(["operations:read", "operations:prepare"]); setActive(true); };
+  return <section className="panel account-card"><h3>রোল ও অনুমতি</h3><p>একই রোলের সদস্যদের স্টেশন ও টেবিল আলাদা করে নির্ধারণ করুন। রোল বদলালে সদস্যদের আবার লগইন করতে হবে।</p>
+    <div className="role-chips">{roles.filter((r) => !r.builtin).map((r) => <button type="button" key={r.id} className="secondary" onClick={() => { setEditing(r); setName(r.name); setBase(r.baseRole); setMode(r.mobileMode); setSelected(r.permissions); setActive(r.active); }}>{r.name}{!r.active ? " · বন্ধ" : ""}</button>)}</div>
+    <form onSubmit={async (e) => { e.preventDefault(); if (await save({ name, baseRole: base, mobileMode: mode, permissions: selected, active }, editing?.id)) reset(); }}>
+      <label>রোলের নাম<input required minLength={2} maxLength={80} value={name} onChange={(e) => setName(e.target.value)} placeholder="যেমন: Station Operator" /></label>
+      <label>মূল রোল<select value={base} onChange={(e) => { const role = roles.find((r) => r.id === e.target.value)!; setBase(role.baseRole); setSelected(role.permissions.filter((p) => permissions.includes(p))); }}>{roles.filter((r) => r.builtin && r.id !== "owner").map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}</select></label>
+      <label>Android ইন্টারফেস<select value={mode} onChange={(e) => { const value = e.target.value; setMode(value); const needed: Permission[] = value === "waiter" ? ["menu:read", "tables:read", "orders:read", "orders:create", "operations:read", "operations:serve"] : value === "operator" ? ["operations:read", "operations:prepare"] : []; setSelected((current) => [...new Set([...current, ...needed])]); }}><option value="operator">কিচেন / স্টেশন অপারেটর</option><option value="waiter">ওয়েটার</option><option value="none">শুধু অনুমতিপ্রাপ্ত অ্যাডমিন পেজ</option></select></label>
+      <fieldset><legend>কাজের অনুমতি</legend><div className="permission-options">{permissions.map((p) => <label key={p}><input type="checkbox" checked={selected.includes(p)} onChange={(e) => setSelected((current) => e.target.checked ? [...current, p] : current.filter((v) => v !== p))} />{labels[p] || p}</label>)}</div></fieldset>
+      {editing && <label className="check-label"><input type="checkbox" checked={active} onChange={(e) => setActive(e.target.checked)} />রোল সক্রিয়</label>}
+      <div className="assignment-tools"><button className="primary" disabled={busy}>{editing ? "রোল সেভ করুন" : "নতুন রোল তৈরি করুন"}</button>{editing && <button type="button" className="secondary" onClick={reset}>নতুন তৈরি</button>}</div>
+    </form>
+  </section>;
+}

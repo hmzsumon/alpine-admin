@@ -1,0 +1,42 @@
+/* ────────── read-only live UI checks; no accounts or orders are created ────────── */
+import fs from "node:fs/promises";
+import path from "node:path";
+import assert from "node:assert/strict";
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
+const origin = "http://localhost:3100";
+const output = process.env.ALPINE_SCREENSHOT_DIR || "F:/ludo-win/screenshots";
+const credentials = JSON.parse(await fs.readFile(path.resolve(import.meta.dirname, "../../alpine-api/.initial-admin.json"), "utf8"));
+const browser = await chromium.launch({ channel: "chrome", headless: true });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+let signedIn = false;
+try {
+  const login = await context.request.post(origin + "/api/auth/login", { headers: { Origin: origin }, data: { email: credentials.email, password: credentials.password } });
+  assert.equal(login.status(), 200); signedIn = true;
+  const page = await context.newPage(); await page.goto(origin + "/users", { waitUntil: "networkidle" });
+  const create = page.locator("form").filter({ has: page.getByRole("button", { name: "কর্মী তৈরি করুন", exact: true }) });
+  await create.getByLabel("কর্মীর নাম").fill("UI preview only"); await create.getByLabel("মোবাইল নম্বর — লগইন আইডি").fill("01700000001");
+  await create.locator('select[name="role"]').selectOption("kitchen");
+  await create.getByLabel("Main Kitchen", { exact: true }).check();
+  await create.getByLabel("T-01", { exact: true }).check();
+  assert.equal(await create.getByRole("checkbox", { checked: true }).count(), 2);
+  const password = create.getByLabel("পাসওয়ার্ড", { exact: true });
+  assert.equal(await password.evaluate((input) => input.validity.valueMissing), true);
+  await password.fill("Preview-Only!123");
+  const role = page.locator("form").filter({ has: page.getByRole("button", { name: "নতুন রোল তৈরি করুন", exact: true }) });
+  await role.getByLabel("রোলের নাম").fill("Drinks Operator Preview");
+  await role.locator("select").nth(1).selectOption("operator");
+  assert(await role.getByLabel("অর্ডার গ্রহণ ও প্রস্তুত করা", { exact: true }).isChecked());
+  assert(await page.getByRole("heading", { name: "পাসওয়ার্ড রিসেট", exact: true }).isVisible());
+  await page.screenshot({ path: path.join(output, "alpine-staff-operations-desktop.png"), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 }); await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForFunction(() => document.querySelector(".sidebar").getBoundingClientRect().right <= 1);
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+  await page.screenshot({ path: path.join(output, "alpine-staff-operations-mobile.png"), fullPage: true });
+  await page.setViewportSize({ width: 1440, height: 1000 }); await page.goto(origin + "/kitchen", { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: "ইতিহাস", exact: true }).waitFor();
+  for (const name of ["Main Kitchen", "BBQ", "Drinks"]) assert(await page.getByRole("heading", { name, exact: true }).isVisible());
+  await page.screenshot({ path: path.join(output, "alpine-station-workflow-desktop.png"), fullPage: true });
+  console.log("Staff UI passed: mobile identity, role selection, station/table assignment, required password, custom role permissions, reset form, mobile layout and three-station board. No form submitted.");
+} finally { if (signedIn) await context.request.post(origin + "/api/auth/logout", { headers: { Origin: origin } }).catch(() => {}); await context.close(); await browser.close(); }

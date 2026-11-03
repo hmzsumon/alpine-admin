@@ -1,0 +1,132 @@
+/* ── Component: MenuManagement ────────────────────────────────────────────── */
+"use client";
+
+/* ────────── imports ────────── */
+import { useAuth } from "@/providers/AuthProvider";
+import { useAdminContext } from "@/context/AdminContext";
+import { Plus } from "lucide-react";
+import { money } from "@/utils/format";
+import SearchBox from "@/components/ui/SearchBox";
+import Empty from "@/components/ui/EmptyState";
+import MenuImage from "@/components/menu/MenuImage";
+import MenuItemName from "@/components/menu/MenuItemName";
+
+export default function MenuManagement() {
+  const { can } = useAuth();
+  /* ────────── workspace state ────────── */
+  const {
+    data,
+    search,
+    setSearch,
+    category,
+    setCategory,
+    setModal,
+    setEditing,
+    categories,
+    filteredMenu,
+  } = useAdminContext();
+
+  return (
+    <section className="panel">
+      <div className="panel-title">
+        <div>
+          <h3>
+            Menu library <span className="count-pill">{data.menu.length}</span>
+          </h3>
+          <p>Prices in BDT · Routing can be changed per item</p>
+        </div>
+        <div className="menu-actions">
+        <button className="secondary" disabled={!can("menu:manage")}
+          onClick={() => setModal("category")}>
+          <Plus size={16} /> Add category
+        </button>
+        <button
+          className="primary"
+          disabled={!can("menu:manage")}
+          onClick={() => {
+            setEditing(null);
+            setModal("menu");
+          }}
+        >
+          <Plus size={16} /> Add item
+        </button>
+        </div>
+      </div>
+      <div className="filters">
+        <SearchBox value={search} onChange={setSearch} />
+        <select
+          aria-label="Category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option>All categories</option>
+          {categories.map((c) => (
+            <option key={c}>{c}</option>
+          ))}
+        </select>
+      </div>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Item name</th>
+              <th>Category</th>
+              <th>Kitchen station</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {filteredMenu.map((i) => (
+              <tr key={i.id}>
+                <td>
+                  <div className="menu-item-identity">
+                  <MenuImage src={i.imageUrl} name={i.name} />
+                  <div>
+                  <MenuItemName item={i} />
+                  {!i.nameBn && <small className="item-note amber-text">বাংলা নাম যোগ করুন</small>}
+                  {i.note && <small className="item-note">{i.note}</small>}
+                  </div>
+                  </div>
+                </td>
+                <td>{i.category}</td>
+                <td>
+                  <span className="station-tag">{i.station}</span>
+                </td>
+                <td>
+                  {i.price === null ? (
+                    <span className="amber-text">Unconfirmed</span>
+                  ) : (
+                    money(i.price)
+                  )}
+                </td>
+                <td>
+                  <span className={`badge ${i.active && data.stockSummary?.[i.id]?.available !== false ? "Ready" : "Cancelled"}`}>
+                    {!i.active ? "Disabled" : data.stockSummary?.[i.id]?.available === false ? "Unavailable" : "Available"}
+                  </span>
+                  {data.stockSummary?.[i.id]?.tracked && <small className="item-note">{data.stockSummary[i.id].available
+                    ? data.stockSummary[i.id].quantity === null ? "Kitchen available" : `${data.stockSummary[i.id].quantity} remaining`
+                    : data.stockSummary[i.id].reason}</small>}
+                </td>
+                <td>
+                  <button
+                    className="text-button"
+                    disabled={!can("menu:manage")}
+                    onClick={() => {
+                      setEditing(i);
+                      setModal("menu");
+                    }}
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!filteredMenu.length && <Empty text="No items match your search." />}
+      </div>
+    </section>
+  );
+}

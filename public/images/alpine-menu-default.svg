@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#123e36"/><stop offset="1" stop-color="#101a24"/></radialGradient>
+    <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#f5dfa4"/><stop offset="1" stop-color="#b79151"/></linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#e9d8aa" opacity=".07"/></pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#dots)"/>
+  <rect x="28" y="28" width="744" height="544" rx="28" fill="none" stroke="#bfa66d" opacity=".3"/>
+  <circle cx="400" cy="237" r="90" fill="#15382f" stroke="url(#gold)" stroke-width="1.5"/>
+  <circle cx="400" cy="237" r="76" fill="none" stroke="#bfa66d" opacity=".25"/>
+  <path d="M344 268l42-61 22 31 19-27 34 57M364 239l22-32 13 19M415 229l12-18 16 24" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M345 284h110" stroke="#bfa66d" opacity=".6"/>
+  <text x="400" y="378" text-anchor="middle" font-family="Georgia,serif" font-size="64" letter-spacing="12" fill="url(#gold)">ALPINE</text>
+  <text x="400" y="417" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="9" fill="#cad9d1">RESTAURANT</text>
+  <path d="M300 454h68m64 0h68" stroke="#bfa66d" opacity=".5"/><path d="M400 448l6 6-6 6-6-6z" fill="#bfa66d"/>
+  <text x="400" y="498" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" letter-spacing="4" fill="#8da89c">CHOWHATTA · SYLHET</text>
+</svg>
