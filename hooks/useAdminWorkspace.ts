@@ -7,6 +7,7 @@ import { loadWorkspace, persistWorkspace } from "@/lib/adminWorkspace";
 import { total, paidOrder } from "@/utils/format";
 import type { AppData, MenuItem, Order } from "@/types";
 import { defaultTables, defaultKitchens } from "@/config/restaurantSetup";
+import { matchesMenuSearch, normalizeItemCode } from "@/utils/menuSearch";
 
 /* ────────── workspace state and actions ────────── */
 export function useAdminWorkspace() {
@@ -114,9 +115,9 @@ export function useAdminWorkspace() {
 
   const filteredMenu = data.menu.filter(
     (i) =>
-      (category === "All categories" || i.category === category) &&
-      `${i.name} ${i.nameBn || ""} ${i.category}`.normalize("NFC").toLowerCase().includes(search.normalize("NFC").toLowerCase())
-  );
+      (category === "All categories" || i.category === category || (i.code && i.code === normalizeItemCode(search.replace(/^(?:কোড|code)\s*/i, "")))) &&
+      matchesMenuSearch(i, search)
+  ).sort((a, b) => (a.code || "999999").localeCompare(b.code || "999999", "en", { numeric: true }));
 
   const orders = data.orders.filter((o) =>
     `${o.id} ${o.table} ${o.parcelToken || ""} ${o.customerName || ""} ${o.customerPhone || ""} ${o.waiter}`

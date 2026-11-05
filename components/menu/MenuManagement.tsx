@@ -73,6 +73,7 @@ export default function MenuManagement() {
           <thead>
             <tr>
               <th>Item name</th>
+              <th>কোড</th>
               <th>Category</th>
               <th>Kitchen station</th>
               <th>Price</th>
@@ -93,6 +94,7 @@ export default function MenuManagement() {
                   </div>
                   </div>
                 </td>
+                <td><strong className="item-code-badge">{i.code || "—"}</strong>{i.codeNote && <small className="item-note amber-text" title={i.codeNote}>কোডের নোট দেখুন — Edit</small>}</td>
                 <td>{i.category}</td>
                 <td>
                   <span className="station-tag">{stationName(i.station)}</span>

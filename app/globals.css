@@ -1653,3 +1653,7 @@ label.check-label {
 .order-line-details p { margin: 9px 0; }
 .parcel-report { display: flex; flex-wrap: wrap; gap: 20px; padding: 18px 24px; border-top: 1px solid var(--border); color: var(--muted); }
 .parcel-report strong { color: var(--text); margin-left: 6px; }
+
+/* ────────── stable restaurant item codes ────────── */
+.item-code-badge { display: inline-block; padding: 5px 9px; border-radius: 7px; border: 1px solid #226953; background: #16c49312; color: #6ce3be; font-variant-numeric: tabular-nums; }
+.item-code-label { display: block; color: #8cbaa9 !important; margin-bottom: 4px; font-size: 11px; letter-spacing: .2px; }

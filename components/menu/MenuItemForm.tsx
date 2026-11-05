@@ -5,6 +5,7 @@
 import { useAdminContext } from "@/context/AdminContext";
 import { useRef, useState } from "react";
 import MenuImagePicker from "@/components/menu/MenuImagePicker";
+import { normalizeItemCode } from "@/utils/menuSearch";
 
 import type { MenuItem, Station } from "@/types";
 
@@ -31,6 +32,8 @@ export default function MenuItemForm() {
           return;
         }
         const item: MenuItem = {
+          code: normalizeItemCode(String(f.get("code") || "")),
+          codeNote: String(f.get("codeNote") || "").trim(),
           imageUrl,
           id: editing?.id || crypto.randomUUID(),
           name: String(f.get("name")).trim(),
@@ -45,6 +48,7 @@ export default function MenuItemForm() {
           setNotice("English name, Bengali name (বাংলা) and category are required");
           return;
         }
+        if (item.code && data.menu.some((other) => other.id !== item.id && other.code === item.code)) { setNotice("এই কোড অন্য আইটেমে আছে। আলাদা কোড দিন অথবা খালি রাখুন—সিস্টেম কোড দেবে।"); return; }
         if (item.active && price === null) {
           setNotice("Confirm the price before enabling an item");
           return;
@@ -75,6 +79,9 @@ export default function MenuItemForm() {
         Item name (English) *
         <input required name="name" maxLength={200} defaultValue={editing?.name} placeholder="e.g. Mug Dal" lang="en" />
       </label>
+      <label>আইটেম কোড<input name="code" maxLength={40} defaultValue={editing?.code || ""} placeholder="খালি রাখলে ইউনিক কোড বসবে" /><small className="item-note">একই কোড একাধিক আইটেমে ব্যবহার করা যাবে না। বাংলা বা ইংরেজি অঙ্ক লিখতে পারবেন।</small></label>
+      {(editing?.codeNote || editing?.catalogRef) && <label>কোড যাচাইয়ের নোট<input name="codeNote" maxLength={500} defaultValue={editing?.codeNote || ""} /><small className="item-note">Excel-এর অস্পষ্ট তথ্য থাকলে যাচাই করে নোট সংশোধন করুন।</small></label>}
+      {editing?.price === null && <p className="info-note">এই আইটেমের দাম এখনও দেওয়া হয়নি। দাম দিয়ে Available for ordering চিহ্নিত করে সেভ করলে ওয়েটার অর্ডার নিতে পারবেন।</p>}
       <label>আইটেমের বাংলা নাম *<input required name="nameBn" maxLength={200} defaultValue={editing?.nameBn} placeholder="যেমন: মুগ ডাল" lang="bn" />
         <small className="item-note">ওয়েটারের অ্যাপে এই নামটি বড় করে দেখাবে। English name-ও রাখা হবে।</small></label>
       <div className="form-grid">

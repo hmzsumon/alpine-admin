@@ -1,5 +1,6 @@
 /* ── Component: OrderForm; one bill with separate dine-in and parcel lines ── */
 "use client";
+import { matchesMenuSearch } from "@/utils/menuSearch";
 import { useRef, useState } from "react";
 import { useAuth } from "@/providers/AuthProvider";
 import { useAdminContext } from "@/context/AdminContext";
@@ -44,7 +45,7 @@ export default function OrderForm() {
       {!original && <><label>কাস্টমারের নাম (ঐচ্ছিক)<input name="customerName" maxLength={100} /></label><label>মোবাইল (ঐচ্ছিক)<input name="customerPhone" type="tel" maxLength={30} /></label><label>প্যাকিং চার্জ (৳)<input type="number" min={0} max={10000} step="0.01" value={charge} onChange={(e) => setCharge(e.target.value)} /></label></>}</div>
       <SearchBox value={search} onChange={setSearch} />
       <p className="info-note">একই খাবার এখানে খাওয়া ও পার্সেলের জন্য আলাদা করে যোগ করুন। কিচেনের টিকিটেও আলাদা দেখাবে।</p>
-      <div className="order-picker">{data.menu.filter((m) => m.active && m.price !== null && `${m.name} ${m.nameBn || ""}`.toLowerCase().includes(search.toLowerCase())).map((item) => <div key={item.id} className="parcel-picker-row"><div className="menu-item-identity"><MenuImage src={item.imageUrl} name={item.name} /><span><MenuItemName item={item} bengaliFirst /><small>{stationName(item.station)} · {money(item.price!)}</small></span></div><div className="parcel-quantity-options">{modes.map((mode) => {
+      <div className="order-picker">{data.menu.filter((m) => m.active && m.price !== null && matchesMenuSearch(m, search)).map((item) => <div key={item.id} className="parcel-picker-row"><div className="menu-item-identity"><MenuImage src={item.imageUrl} name={item.name} /><span><MenuItemName item={item} bengaliFirst /><small>{stationName(item.station)} · {money(item.price!)}</small></span></div><div className="parcel-quantity-options">{modes.map((mode) => {
         const key = item.id + "|" + mode, count = cart[key] || 0, all = modes.reduce((s, m) => s + (cart[item.id + "|" + m] || 0), 0), stock = data.stockSummary?.[item.id];
         return <div key={mode}><small className={mode === "parcel" ? "parcel-label" : "muted"}>{mode === "parcel" ? "পার্সেল" : "এখানে খাবেন"}</small><div className="stepper"><button type="button" aria-label={`${item.name} ${mode} কমান`} onClick={() => setCart({ ...cart, [key]: Math.max(0, count - 1) })}>−</button><b>{count}</b><button type="button" aria-label={`${item.name} ${mode} যোগ করুন`} disabled={stock?.available === false || count >= 99 || (stock?.quantity != null && all >= stock.quantity)} onClick={() => setCart({ ...cart, [key]: Math.min(99, count + 1) })}>+</button></div></div>;
       })}</div></div>)}</div>
