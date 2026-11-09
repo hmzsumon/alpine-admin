@@ -38,6 +38,7 @@ export default function MenuItemForm() {
           id: editing?.id || crypto.randomUUID(),
           name: String(f.get("name")).trim(),
           nameBn: String(f.get("nameBn")).trim(),
+          aliases: [...new Set(String(f.get("aliases") || "").split(/[,，\n]/).map(s => s.trim()).filter(Boolean))],
           category: String(f.get("category")).trim(),
           station: f.get("station") as Station,
           price,
@@ -48,6 +49,7 @@ export default function MenuItemForm() {
           setNotice("English name, Bengali name (বাংলা) and category are required");
           return;
         }
+        if ((item.aliases?.length || 0) > 20 || item.aliases?.some(alias => alias.length > 80)) { setNotice("সর্বোচ্চ ২০টি বিকল্প নাম দিন; প্রতিটি ৮০ অক্ষরের মধ্যে রাখুন।"); return; }
         if (item.code && data.menu.some((other) => other.id !== item.id && other.code === item.code)) { setNotice("এই কোড অন্য আইটেমে আছে। আলাদা কোড দিন অথবা খালি রাখুন—সিস্টেম কোড দেবে।"); return; }
         if (item.active && price === null) {
           setNotice("Confirm the price before enabling an item");
@@ -84,6 +86,7 @@ export default function MenuItemForm() {
       {editing?.price === null && <p className="info-note">এই আইটেমের দাম এখনও দেওয়া হয়নি। দাম দিয়ে Available for ordering চিহ্নিত করে সেভ করলে ওয়েটার অর্ডার নিতে পারবেন।</p>}
       <label>আইটেমের বাংলা নাম *<input required name="nameBn" maxLength={200} defaultValue={editing?.nameBn} placeholder="যেমন: মুগ ডাল" lang="bn" />
         <small className="item-note">ওয়েটারের অ্যাপে এই নামটি বড় করে দেখাবে। English name-ও রাখা হবে।</small></label>
+      <label>ভয়েস সার্চের বিকল্প নাম<textarea name="aliases" maxLength={1620} defaultValue={editing?.aliases?.join(", ") || ""} placeholder="যেমন: পরাটা, নরমাল পরোটা, plain paratha" /><small className="item-note">কমা দিয়ে আলাদা করুন। সর্বোচ্চ ২০টি নাম। হাফ/ফুলের আলাদা আইটেমে সঠিক সাইজসহ নাম দিন। একই বিকল্প নাম একাধিক আইটেমে থাকলে ওয়েটারকে বেছে নিতে হবে।</small></label>
       <div className="form-grid">
         <label>
           Category *

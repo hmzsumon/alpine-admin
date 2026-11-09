@@ -4,6 +4,7 @@ export type Station = string;
 export type RestaurantTable = { id: string; name: string; floor: string; seats: number };
 export type Kitchen = { id: string; name: string; floor: string };
 export type MenuItem = {
+  aliases?: string[];
   code?: string;
   codeNote?: string;
   catalogRef?: string;

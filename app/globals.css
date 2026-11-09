@@ -22,12 +22,14 @@ body {
 }
 button,
 input,
+textarea,
 select {
   font: inherit;
 }
 button,
 a,
 input,
+textarea,
 select {
   outline-offset: 4px;
 }
@@ -364,6 +366,7 @@ h1 {
   text-decoration: underline;
 }
 select,
+textarea,
 input {
   background: #222232;
   border: 1px solid #343447;
@@ -951,6 +954,7 @@ label {
   margin-bottom: 18px;
 }
 label > input,
+label > textarea,
 label > select {
   display: block;
   width: 100%;
@@ -1657,3 +1661,6 @@ label.check-label {
 /* ────────── stable restaurant item codes ────────── */
 .item-code-badge { display: inline-block; padding: 5px 9px; border-radius: 7px; border: 1px solid #226953; background: #16c49312; color: #6ce3be; font-variant-numeric: tabular-nums; }
 .item-code-label { display: block; color: #8cbaa9 !important; margin-bottom: 4px; font-size: 11px; letter-spacing: .2px; }
+
+/* ────────── editable voice aliases match the menu form on every screen ────────── */
+label > textarea { min-height: 82px; resize: vertical; line-height: 1.7; }
