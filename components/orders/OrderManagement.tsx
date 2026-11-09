@@ -9,6 +9,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { Download } from "lucide-react";
 
 import SearchBox from "@/components/ui/SearchBox";
+import DeletedOrderHistory from "./DeletedOrderHistory";
 import OrderTable from "@/components/orders/OrderTable";
 
 export default function OrderManagement() {
@@ -38,6 +39,7 @@ export default function OrderManagement() {
         <SearchBox value={search} onChange={setSearch} />
       </div>
       <OrderTable orders={visible} onStatus={status} busy={busy} />
+      {can("orders:delete") && <DeletedOrderHistory key={orders.length} />}
     </section>
   );
 }

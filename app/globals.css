@@ -1664,3 +1664,8 @@ label.check-label {
 
 /* ────────── editable voice aliases match the menu form on every screen ────────── */
 label > textarea { min-height: 82px; resize: vertical; line-height: 1.7; }
+
+/* ────────── explicit order deletion and private audit history ────────── */
+.delete-order-confirm { background: #a63243; color: #fff; padding: 11px 14px; border-radius: 8px; font-size: 12px; }
+.deleted-order-history { margin: 18px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; }
+.deleted-order-history > summary { cursor: pointer; color: #f0a3ac; font-size: 12px; }

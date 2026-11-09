@@ -19,6 +19,7 @@ export type Permission =
   | "orders:read"
   | "orders:create"
   | "orders:update"
+  | "orders:delete"
   | "orders:cancel"
   | "payments:collect"
   | "tables:read"
@@ -39,6 +40,8 @@ export interface AuthUser {
   email: string;
   phone?: string; roleId?: string; roleName?: string; stations?: string[]; tables?: string[]; mobileMode?: "waiter" | "operator" | "none";
   role: Role;
+  passwordMinimum?: 6 | 12;
+  canDeleteOrders?: boolean;
   active: boolean;
   permissions: Permission[];
 }

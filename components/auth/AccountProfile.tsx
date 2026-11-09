@@ -71,7 +71,7 @@ export default function AccountProfile() {
               name="newPassword"
               type="password"
               required
-              minLength={12}
+              minLength={user.passwordMinimum || 12}
               maxLength={72}
               autoComplete="new-password"
             />
@@ -82,7 +82,7 @@ export default function AccountProfile() {
               name="confirmPassword"
               type="password"
               required
-              minLength={12}
+              minLength={user.passwordMinimum || 12}
               maxLength={72}
               autoComplete="new-password"
             />
