@@ -2,9 +2,11 @@
 "use client";
 
 /* ────────── imports ────────── */
+import { useState } from "react";
+import MenuImportPanel from "./MenuImportPanel";
 import { useAuth } from "@/providers/AuthProvider";
 import { useAdminContext } from "@/context/AdminContext";
-import { Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2, FileSpreadsheet } from "lucide-react";
 import CategoryManagement from "./CategoryManagement";
 import { money } from "@/utils/format";
 import SearchBox from "@/components/ui/SearchBox";
@@ -14,6 +16,7 @@ import MenuItemName from "@/components/menu/MenuItemName";
 
 export default function MenuManagement() {
   const { can } = useAuth();
+  const [showImport, setShowImport] = useState(false);
   /* ────────── workspace state ────────── */
   const {
     data,
@@ -38,6 +41,7 @@ export default function MenuManagement() {
           <p>Prices in BDT · Routing can be changed per item</p>
         </div>
         <div className="menu-actions">
+        {can("menu:manage") && <button type="button" className="secondary" disabled={busy || showImport || mode !== "database"} onClick={() => setShowImport(true)}><FileSpreadsheet size={16}/>Excel Import / Update</button>}
         <button className="secondary" disabled={!can("menu:manage")}
           onClick={() => setModal("category")}>
           <Plus size={16} /> Add category
@@ -54,6 +58,7 @@ export default function MenuManagement() {
         </button>
         </div>
       </div>
+      {showImport && <MenuImportPanel close={() => setShowImport(false)} />}
       <CategoryManagement />
       <div className="filters">
         <SearchBox value={search} onChange={setSearch} />
