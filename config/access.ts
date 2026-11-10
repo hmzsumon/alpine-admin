@@ -5,6 +5,8 @@ export const routePermissions: Record<string, Permission> = {
   "/dashboard": "overview:read",
   "/orders": "orders:read",
   "/menu": "menu:read",
+  "/procurement": "procurement:read",
+  "/procurement-print": "procurement:read",
   "/inventory": "inventory:read",
   "/tables": "tables:read",
   "/kitchen": "kitchen:read",

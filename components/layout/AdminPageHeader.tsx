@@ -21,7 +21,7 @@ export default function AdminPageHeader() {
         <h1>{page === "Overview" ? "Overview" : page}</h1>
         <p>{heading[page]}</p>
       </div>
-      {page !== "নির্দেশিকা" && <div className="heading-actions">
+      {page !== "নির্দেশিকা" && page !== "ক্রয় ও স্টোর" && <div className="heading-actions">
         <select
           aria-label="Reporting period"
           value={range}

@@ -12,6 +12,7 @@ export type Permission =
   | "overview:read"
   | "menu:read"
   | "menu:manage"
+  | "procurement:read" | "procurement:manage" | "procurement:pay" | "procurement:operate" | "procurement:close"
   | "inventory:read"
   | "inventory:operate"
   | "inventory:manage"
