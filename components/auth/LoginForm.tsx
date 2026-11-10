@@ -79,13 +79,13 @@ export default function LoginForm() {
         <p>Use the account provided by your restaurant owner.</p>
         <form onSubmit={submit}>
           <label>
-            Email address
+            মোবাইল নম্বর / ইমেইল
             <input
               name="email"
-              type="email"
+              type="text"
               required
               autoComplete="username"
-              placeholder="you@alpine.com"
+              placeholder="01XXXXXXXXX / you@alpine.com"
               maxLength={254}
             />
           </label>
