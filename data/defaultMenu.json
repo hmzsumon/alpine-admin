@@ -1,0 +1,2241 @@
+[
+  {
+    "id": "excel-menu-1",
+    "name": "Mug Dal Half",
+    "nameBn": "মুগ ডাল হাফ",
+    "code": "1",
+    "catalogRef": "menu-items-english-bangla:1",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-2",
+    "name": "Mug Dal Full",
+    "nameBn": "মুগ ডাল ফুল",
+    "code": "2",
+    "catalogRef": "menu-items-english-bangla:2",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-3",
+    "name": "Bhaji Half",
+    "nameBn": "ভাজি হাফ",
+    "code": "3",
+    "catalogRef": "menu-items-english-bangla:3",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-4",
+    "name": "Bhaji Full",
+    "nameBn": "ভাজি ফুল",
+    "code": "4",
+    "catalogRef": "menu-items-english-bangla:4",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-5",
+    "name": "Dal Bhaji Mix Half",
+    "nameBn": "ডাল ভাজি মিক্স হাফ",
+    "code": "5",
+    "catalogRef": "menu-items-english-bangla:5",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-6",
+    "name": "Dal Bhaji Mix Full",
+    "nameBn": "ডাল ভাজি মিক্স ফুল",
+    "code": "6",
+    "catalogRef": "menu-items-english-bangla:6",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-7",
+    "name": "Mutton Koliji Half",
+    "nameBn": "মাটন কলিজা হাফ",
+    "code": "7",
+    "catalogRef": "menu-items-english-bangla:7",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-8",
+    "name": "Mutton Koliji Full",
+    "nameBn": "মাটন কলিজা ফুল",
+    "code": "8",
+    "catalogRef": "menu-items-english-bangla:8",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "breakfast-mutton-paya-0",
+    "name": "Mutton Paya",
+    "nameBn": "মাটন পায়া",
+    "code": "9",
+    "catalogRef": "menu-items-english-bangla:9",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 120,
+    "active": true
+  },
+  {
+    "id": "excel-menu-10",
+    "name": "Chicken Soup Half",
+    "nameBn": "চিকেন স্যুপ হাফ",
+    "code": "10",
+    "catalogRef": "menu-items-english-bangla:10",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-11",
+    "name": "Chicken Soup Full",
+    "nameBn": "চিকেন স্যুপ ফুল",
+    "code": "11",
+    "catalogRef": "menu-items-english-bangla:11",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "breakfast-l-chicken-soup-0",
+    "name": "L. Chicken Soup",
+    "nameBn": "এল. চিকেন স্যুপ",
+    "code": "12",
+    "catalogRef": "menu-items-english-bangla:12",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 100,
+    "active": true,
+    "codeNote": "ছবিতে L. লেখা; পূর্ণরূপ স্পষ্ট নয়।"
+  },
+  {
+    "id": "breakfast-l-vegetable-soup-0",
+    "name": "L. Vegetable Soup",
+    "nameBn": "এল. ভেজিটেবল স্যুপ",
+    "code": "13",
+    "catalogRef": "menu-items-english-bangla:13",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 100,
+    "active": true,
+    "codeNote": "ছবিতে L. লেখা; পূর্ণরূপ স্পষ্ট নয়।"
+  },
+  {
+    "id": "breakfast-mutton-khichuri-0",
+    "name": "Mutton Khichuri",
+    "nameBn": "মাটন খিচুড়ি",
+    "code": "14",
+    "catalogRef": "menu-items-english-bangla:14",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 140,
+    "active": true
+  },
+  {
+    "id": "excel-menu-15",
+    "name": "Egg Pest",
+    "nameBn": "ডিম পোচ",
+    "code": "15",
+    "catalogRef": "menu-items-english-bangla:15",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "ছবিতে Egg Pest; বাংলা নাম সম্ভাব্য পাঠ—যাচাই করুন।"
+  },
+  {
+    "id": "breakfast-egg-omelette-0",
+    "name": "Egg Omelet",
+    "nameBn": "ডিম অমলেট",
+    "code": "16",
+    "catalogRef": "menu-items-english-bangla:16",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 30,
+    "active": true,
+    "aliases": [
+      "Egg Omelette"
+    ]
+  },
+  {
+    "id": "rice-sides-chicken-vegetable-0",
+    "name": "Chicken Vegetable",
+    "nameBn": "চিকেন ভেজিটেবল",
+    "code": "17",
+    "catalogRef": "menu-items-english-bangla:17",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": 60,
+    "active": true,
+    "codeNote": "ছবিতে Half উল্লেখ নেই।"
+  },
+  {
+    "id": "excel-menu-18",
+    "name": "Chicken Vegetable Full",
+    "nameBn": "চিকেন ভেজিটেবল ফুল",
+    "code": "18",
+    "catalogRef": "menu-items-english-bangla:18",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "paratha-normal-paratha-0",
+    "name": "Paratha",
+    "nameBn": "পরোটা",
+    "code": "19",
+    "catalogRef": "menu-items-english-bangla:19",
+    "category": "Paratha",
+    "station": "Main Kitchen",
+    "price": 25,
+    "active": true,
+    "aliases": [
+      "Normal Paratha"
+    ]
+  },
+  {
+    "id": "paratha-special-paratha-0",
+    "name": "Special Paratha",
+    "nameBn": "স্পেশাল পরোটা",
+    "code": "20",
+    "catalogRef": "menu-items-english-bangla:20",
+    "category": "Paratha",
+    "station": "Main Kitchen",
+    "price": 50,
+    "active": true
+  },
+  {
+    "id": "paratha-keema-paratha-0",
+    "name": "Keema Paratha",
+    "nameBn": "কিমা পরোটা",
+    "code": "21",
+    "catalogRef": "menu-items-english-bangla:21",
+    "category": "Paratha",
+    "station": "Main Kitchen",
+    "price": 220,
+    "active": true
+  },
+  {
+    "id": "paratha-chicken-masala-paratha-0",
+    "name": "Chicken Masala Paratha",
+    "nameBn": "চিকেন মসলা পরোটা",
+    "code": "25",
+    "catalogRef": "menu-items-english-bangla:22",
+    "category": "Paratha",
+    "station": "Main Kitchen",
+    "price": 200,
+    "active": true
+  },
+  {
+    "id": "naan-normal-naan-0",
+    "name": "Naan",
+    "nameBn": "নান",
+    "code": "26",
+    "catalogRef": "menu-items-english-bangla:23",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": 20,
+    "active": true,
+    "aliases": [
+      "Normal Naan"
+    ]
+  },
+  {
+    "id": "naan-special-naan-0",
+    "name": "Special Naan",
+    "nameBn": "স্পেশাল নান",
+    "code": "27",
+    "catalogRef": "menu-items-english-bangla:24",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": 50,
+    "active": true
+  },
+  {
+    "id": "naan-garlic-naan-0",
+    "name": "Garlic Naan",
+    "nameBn": "গার্লিক নান",
+    "code": "28",
+    "catalogRef": "menu-items-english-bangla:25",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": 90,
+    "active": true
+  },
+  {
+    "id": "naan-chicken-masala-naan-0",
+    "name": "Chicken Masala Naan",
+    "nameBn": "চিকেন মসলা নান",
+    "code": "29",
+    "catalogRef": "menu-items-english-bangla:26",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": 200,
+    "active": true
+  },
+  {
+    "id": "excel-menu-27",
+    "name": "Peshawari Naan",
+    "nameBn": "পেশোয়ারি নান",
+    "code": "30",
+    "catalogRef": "menu-items-english-bangla:27",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "naan-keema-naan-0",
+    "name": "Keema Naan",
+    "nameBn": "কিমা নান",
+    "code": "31",
+    "catalogRef": "menu-items-english-bangla:28",
+    "category": "Naan",
+    "station": "BBQ",
+    "price": 220,
+    "active": true
+  },
+  {
+    "id": "halim-halim-0",
+    "name": "Halim",
+    "nameBn": "হালিম",
+    "code": "32",
+    "catalogRef": "menu-items-english-bangla:29",
+    "category": "Halim",
+    "station": "Main Kitchen",
+    "price": 120,
+    "active": true
+  },
+  {
+    "id": "halim-halim-patil-0",
+    "name": "Halim Patil",
+    "nameBn": "হালিম পাতিল",
+    "code": "34",
+    "catalogRef": "menu-items-english-bangla:30",
+    "category": "Halim",
+    "station": "Main Kitchen",
+    "price": 350,
+    "active": true
+  },
+  {
+    "id": "faluda-dessert-normal-faluda-0",
+    "name": "Normal Faluda",
+    "nameBn": "নরমাল ফালুদা",
+    "code": "35",
+    "catalogRef": "menu-items-english-bangla:31",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 140,
+    "active": true,
+    "aliases": [
+      "Normal Falooda"
+    ]
+  },
+  {
+    "id": "faluda-dessert-special-faluda-0",
+    "name": "Special Faluda",
+    "nameBn": "স্পেশাল ফালুদা",
+    "code": "36",
+    "catalogRef": "menu-items-english-bangla:32",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 160,
+    "active": true,
+    "aliases": [
+      "Special Falooda"
+    ]
+  },
+  {
+    "id": "faluda-dessert-normal-family-faluda-0",
+    "name": "Faluda Normal Family",
+    "nameBn": "ফালুদা নরমাল ফ্যামিলি",
+    "code": "37",
+    "catalogRef": "menu-items-english-bangla:33",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 300,
+    "active": true,
+    "aliases": [
+      "Normal Falooda Family",
+      "Normal Familly Faluda"
+    ]
+  },
+  {
+    "id": "faluda-dessert-special-family-faluda-0",
+    "name": "Faluda Special Family",
+    "nameBn": "ফালুদা স্পেশাল ফ্যামিলি",
+    "code": "38",
+    "catalogRef": "menu-items-english-bangla:34",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": null,
+    "active": false,
+    "codeNote": "দাম নিশ্চিত করুন: তালিকায় 400, 420 টাকা আছে।",
+    "aliases": [
+      "Special Falooda Family",
+      "Special Familly Faluda"
+    ]
+  },
+  {
+    "id": "faluda-dessert-pudding-0",
+    "name": "Pudding",
+    "nameBn": "পুডিং",
+    "code": "39",
+    "catalogRef": "menu-items-english-bangla:35",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 60,
+    "active": true
+  },
+  {
+    "id": "faluda-dessert-doi-0",
+    "name": "Cup Doi",
+    "nameBn": "কাপ দই",
+    "code": "42",
+    "catalogRef": "menu-items-english-bangla:36",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 40,
+    "active": true,
+    "aliases": [
+      "Doi"
+    ]
+  },
+  {
+    "id": "excel-menu-37",
+    "name": "Chicken Biryani Half",
+    "nameBn": "চিকেন বিরিয়ানি হাফ",
+    "code": "43",
+    "catalogRef": "menu-items-english-bangla:37",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "biriyani-biriyani-extra-chap-0",
+    "name": "Biryani Chap",
+    "nameBn": "বিরিয়ানি চাপ",
+    "code": "45",
+    "catalogRef": "menu-items-english-bangla:38",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": 80,
+    "active": true,
+    "aliases": [
+      "Biriyani Extra Chap"
+    ]
+  },
+  {
+    "id": "biriyani-biriyani-extra-rice-0",
+    "name": "Biryani Rice Extra",
+    "nameBn": "বিরিয়ানির অতিরিক্ত রাইস",
+    "code": "46",
+    "catalogRef": "menu-items-english-bangla:39",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": 100,
+    "active": true,
+    "aliases": [
+      "Biriyani Extra Rice"
+    ]
+  },
+  {
+    "id": "biriyani-kacchi-biriyani-0",
+    "name": "Kacchi Biryani",
+    "nameBn": "কাচ্চি বিরিয়ানি",
+    "code": "47",
+    "catalogRef": "menu-items-english-bangla:40",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "aliases": [
+      "Kacchi Biriyani"
+    ]
+  },
+  {
+    "id": "biriyani-mutton-biriyani-0",
+    "name": "Mutton Biryani",
+    "nameBn": "মাটন বিরিয়ানি",
+    "code": "48",
+    "catalogRef": "menu-items-english-bangla:41",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": 230,
+    "active": true,
+    "aliases": [
+      "Mutton Biriyani"
+    ]
+  },
+  {
+    "id": "biriyani-beef-biriyani-0",
+    "name": "Beef Biryani",
+    "nameBn": "বিফ বিরিয়ানি",
+    "code": "49",
+    "catalogRef": "menu-items-english-bangla:42",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": 240,
+    "active": true,
+    "aliases": [
+      "Beef Biriyani"
+    ]
+  },
+  {
+    "id": "biriyani-shahi-biriyani-0",
+    "name": "Shahi Biryani",
+    "nameBn": "শাহী বিরিয়ানি",
+    "code": "50",
+    "catalogRef": "menu-items-english-bangla:43",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": 260,
+    "active": true,
+    "aliases": [
+      "Shahi Biriyani"
+    ]
+  },
+  {
+    "id": "breakfast-boil-egg-0",
+    "name": "Egg Boiled",
+    "nameBn": "সিদ্ধ ডিম",
+    "code": "51",
+    "catalogRef": "menu-items-english-bangla:44",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 20,
+    "active": true,
+    "aliases": [
+      "Boil Egg"
+    ]
+  },
+  {
+    "id": "excel-menu-45",
+    "name": "Plain Rice Half",
+    "nameBn": "সাদা ভাত হাফ",
+    "code": "52",
+    "catalogRef": "menu-items-english-bangla:45",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-46",
+    "name": "Plain Rice Full",
+    "nameBn": "সাদা ভাত ফুল",
+    "code": "53",
+    "catalogRef": "menu-items-english-bangla:46",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-47",
+    "name": "Plain Rice Dish",
+    "nameBn": "সাদা ভাত ডিশ",
+    "code": "54",
+    "catalogRef": "menu-items-english-bangla:47",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-48",
+    "name": "Dal Half",
+    "nameBn": "ডাল হাফ",
+    "code": "55",
+    "catalogRef": "menu-items-english-bangla:48",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-49",
+    "name": "Dal Full",
+    "nameBn": "ডাল ফুল",
+    "code": "56",
+    "catalogRef": "menu-items-english-bangla:49",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-50",
+    "name": "Dal Dish",
+    "nameBn": "ডাল ডিশ",
+    "code": "57",
+    "catalogRef": "menu-items-english-bangla:50",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-51",
+    "name": "Vegetable Half",
+    "nameBn": "সবজি হাফ",
+    "code": "58",
+    "catalogRef": "menu-items-english-bangla:51",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-52",
+    "name": "Vegetable Full",
+    "nameBn": "সবজি ফুল",
+    "code": "59",
+    "catalogRef": "menu-items-english-bangla:52",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-53",
+    "name": "Vegetable Dish",
+    "nameBn": "সবজি ডিশ",
+    "code": "60",
+    "catalogRef": "menu-items-english-bangla:53",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-54",
+    "name": "Korola Bhaji Half",
+    "nameBn": "করলা ভাজি হাফ",
+    "code": "61",
+    "catalogRef": "menu-items-english-bangla:54",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-55",
+    "name": "Korola Bhaji Full",
+    "nameBn": "করলা ভাজি ফুল",
+    "code": "62",
+    "catalogRef": "menu-items-english-bangla:55",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-56",
+    "name": "Shorisha Vorta",
+    "nameBn": "সরিষা ভর্তা",
+    "code": "63",
+    "catalogRef": "menu-items-english-bangla:56",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-57",
+    "name": "Mutton Bhuna Half",
+    "nameBn": "মাটন ভুনা হাফ",
+    "code": "66",
+    "catalogRef": "menu-items-english-bangla:57",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-58",
+    "name": "Mutton Bhuna Full",
+    "nameBn": "মাটন ভুনা ফুল",
+    "code": "67",
+    "catalogRef": "menu-items-english-bangla:58",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-59",
+    "name": "Mutton Bhuna Dish",
+    "nameBn": "মাটন ভুনা ডিশ",
+    "code": "68",
+    "catalogRef": "menu-items-english-bangla:59",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-60",
+    "name": "Beef Bhuna Half",
+    "nameBn": "বিফ ভুনা হাফ",
+    "code": "69",
+    "catalogRef": "menu-items-english-bangla:60",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-61",
+    "name": "Beef Bhuna Full",
+    "nameBn": "বিফ ভুনা ফুল",
+    "code": "70",
+    "catalogRef": "menu-items-english-bangla:61",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-62",
+    "name": "Beef Bhuna Dish",
+    "nameBn": "বিফ ভুনা ডিশ",
+    "code": "71",
+    "catalogRef": "menu-items-english-bangla:62",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-63",
+    "name": "Kalo Bhuna Half",
+    "nameBn": "কালো ভুনা হাফ",
+    "code": "72",
+    "catalogRef": "menu-items-english-bangla:63",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-64",
+    "name": "Kalo Bhuna Full",
+    "nameBn": "কালো ভুনা ফুল",
+    "code": "73",
+    "catalogRef": "menu-items-english-bangla:64",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "কোড 73 কাটা দাগযুক্ত—যাচাই করুন।"
+  },
+  {
+    "id": "excel-menu-65",
+    "name": "Kalo Bhuna Dish",
+    "nameBn": "কালো ভুনা ডিশ",
+    "code": "74",
+    "catalogRef": "menu-items-english-bangla:65",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "fish-rupchada-fish-0",
+    "name": "Rup Chada Fish",
+    "nameBn": "রূপচাঁদা মাছ",
+    "code": "75",
+    "catalogRef": "menu-items-english-bangla:66",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "fish-rui-fish-0",
+    "name": "Rui Fish",
+    "nameBn": "রুই মাছ",
+    "code": "76",
+    "catalogRef": "menu-items-english-bangla:67",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "fish-pabda-fish-0",
+    "name": "Pabda Fish",
+    "nameBn": "পাবদা মাছ",
+    "code": "77",
+    "catalogRef": "menu-items-english-bangla:68",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "fish-bowal-fish-0",
+    "name": "Boal Fish",
+    "nameBn": "বোয়াল মাছ",
+    "code": "78",
+    "catalogRef": "menu-items-english-bangla:69",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "সিরিয়াল আংশিক ঢাকা; ধারাবাহিকতা অনুসারে 69।",
+    "aliases": [
+      "Bowal Fish"
+    ]
+  },
+  {
+    "id": "excel-menu-70",
+    "name": "Prawn Fish Half",
+    "nameBn": "চিংড়ি মাছ হাফ",
+    "code": "79",
+    "catalogRef": "menu-items-english-bangla:70",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "সিরিয়াল আংশিক ঢাকা; ধারাবাহিকতা অনুসারে 70।"
+  },
+  {
+    "id": "excel-menu-71",
+    "name": "Prawn Fish Full",
+    "nameBn": "চিংড়ি মাছ ফুল",
+    "code": "80",
+    "catalogRef": "menu-items-english-bangla:71",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "সিরিয়াল আংশিক ঢাকা; ধারাবাহিকতা অনুসারে 71।"
+  },
+  {
+    "id": "excel-menu-72",
+    "name": "Prawn Fish Dish",
+    "nameBn": "চিংড়ি মাছ ডিশ",
+    "code": "81",
+    "catalogRef": "menu-items-english-bangla:72",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "fish-aair-fish-0",
+    "name": "Aine Fish",
+    "nameBn": "আইড় মাছ",
+    "code": "82",
+    "catalogRef": "menu-items-english-bangla:73",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "ছবিতে Aine Fish; বাংলা নাম সম্ভাব্য পাঠ—যাচাই করুন।",
+    "aliases": [
+      "Aair Fish"
+    ]
+  },
+  {
+    "id": "rice-sides-fish-bhorta-0",
+    "name": "Fish Vorta",
+    "nameBn": "মাছ ভর্তা",
+    "code": "87",
+    "catalogRef": "menu-items-english-bangla:74",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": 40,
+    "active": true,
+    "aliases": [
+      "Fish Bhorta"
+    ]
+  },
+  {
+    "id": "grill-kebab-chicken-grill-half-0",
+    "name": "Chicken Grill Half",
+    "nameBn": "চিকেন গ্রিল হাফ",
+    "code": "88",
+    "catalogRef": "menu-items-english-bangla:75",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 220,
+    "active": true
+  },
+  {
+    "id": "grill-kebab-chicken-grill-full-0",
+    "name": "Chicken Grill Full",
+    "nameBn": "চিকেন গ্রিল ফুল",
+    "code": "89",
+    "catalogRef": "menu-items-english-bangla:76",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 440,
+    "active": true
+  },
+  {
+    "id": "excel-menu-77",
+    "name": "Chicken Grill Quarter",
+    "nameBn": "চিকেন গ্রিল কোয়ার্টার",
+    "code": "151",
+    "catalogRef": "menu-items-english-bangla:77",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "grill-kebab-chicken-tandoori-0",
+    "name": "Chicken Tandoori",
+    "nameBn": "চিকেন তন্দুরি",
+    "code": "90",
+    "catalogRef": "menu-items-english-bangla:78",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "grill-kebab-chicken-chaap-0",
+    "name": "Chicken Chap",
+    "nameBn": "চিকেন চাপ",
+    "code": "91",
+    "catalogRef": "menu-items-english-bangla:79",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false,
+    "codeNote": "দাম নিশ্চিত করুন: তালিকায় 170, 180 টাকা আছে।",
+    "aliases": [
+      "Chicken Chaap"
+    ]
+  },
+  {
+    "id": "excel-menu-80",
+    "name": "Beef Kebab Half",
+    "nameBn": "বিফ কাবাব হাফ",
+    "code": "93",
+    "catalogRef": "menu-items-english-bangla:80",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-81",
+    "name": "Beef Kebab Full",
+    "nameBn": "বিফ কাবাব ফুল",
+    "code": "94",
+    "catalogRef": "menu-items-english-bangla:81",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-82",
+    "name": "Beef Kebab Dish",
+    "nameBn": "বিফ কাবাব ডিশ",
+    "code": "95",
+    "catalogRef": "menu-items-english-bangla:82",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-83",
+    "name": "Mutton Kebab Half",
+    "nameBn": "মাটন কাবাব হাফ",
+    "code": "97",
+    "catalogRef": "menu-items-english-bangla:83",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-84",
+    "name": "Mutton Kebab Full",
+    "nameBn": "মাটন কাবাব ফুল",
+    "code": "98",
+    "catalogRef": "menu-items-english-bangla:84",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-85",
+    "name": "Mutton Kebab Dish",
+    "nameBn": "মাটন কাবাব ডিশ",
+    "code": "99",
+    "catalogRef": "menu-items-english-bangla:85",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-86",
+    "name": "Mix Kebab",
+    "nameBn": "মিক্স কাবাব",
+    "code": "103",
+    "catalogRef": "menu-items-english-bangla:86",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-87",
+    "name": "Kebab Sauce",
+    "nameBn": "কাবাব সস",
+    "code": "104",
+    "catalogRef": "menu-items-english-bangla:87",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "lassi-special-lacchi-0",
+    "name": "Special Lassi",
+    "nameBn": "স্পেশাল লাচ্ছি",
+    "code": "105",
+    "catalogRef": "menu-items-english-bangla:88",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 110,
+    "active": true,
+    "aliases": [
+      "Special Lacchi"
+    ]
+  },
+  {
+    "id": "tea-coffee-hot-coffee-0",
+    "name": "Coffee",
+    "nameBn": "কফি",
+    "code": "106",
+    "catalogRef": "menu-items-english-bangla:89",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 110,
+    "active": true,
+    "aliases": [
+      "Hot Coffee"
+    ]
+  },
+  {
+    "id": "tea-coffee-tea-0",
+    "name": "Tea",
+    "nameBn": "চা",
+    "code": "107",
+    "catalogRef": "menu-items-english-bangla:90",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 25,
+    "active": true
+  },
+  {
+    "id": "excel-menu-91",
+    "name": "Tea Parcel",
+    "nameBn": "চা পার্সেল",
+    "code": "108",
+    "catalogRef": "menu-items-english-bangla:91",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-92",
+    "name": "Raw Tea",
+    "nameBn": "রং চা",
+    "code": "109",
+    "catalogRef": "menu-items-english-bangla:92",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-93",
+    "name": "Raw Tea Special",
+    "nameBn": "স্পেশাল রং চা",
+    "code": "110",
+    "catalogRef": "menu-items-english-bangla:93",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-94",
+    "name": "Raw Tea Parcel",
+    "nameBn": "রং চা পার্সেল",
+    "code": "111",
+    "catalogRef": "menu-items-english-bangla:94",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "tea-coffee-special-tea-0",
+    "name": "Special Tea",
+    "nameBn": "স্পেশাল চা",
+    "code": "112",
+    "catalogRef": "menu-items-english-bangla:95",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 50,
+    "active": true
+  },
+  {
+    "id": "juice-drinks-burhani-glass-0",
+    "name": "Borhani Per Glass",
+    "nameBn": "বোরহানি প্রতি গ্লাস",
+    "code": "113",
+    "catalogRef": "menu-items-english-bangla:96",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 45,
+    "active": true,
+    "aliases": [
+      "Burhani"
+    ]
+  },
+  {
+    "id": "juice-drinks-burhani-1-litre-0",
+    "name": "Borhani 1 Liter",
+    "nameBn": "বোরহানি ১ লিটার",
+    "code": "114",
+    "catalogRef": "menu-items-english-bangla:97",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 200,
+    "active": true,
+    "aliases": [
+      "Burhani"
+    ]
+  },
+  {
+    "id": "excel-menu-98",
+    "name": "Water 500 ml",
+    "nameBn": "পানি ৫০০ মিলি",
+    "code": "115",
+    "catalogRef": "menu-items-english-bangla:98",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-99",
+    "name": "Water 1.5 Liter",
+    "nameBn": "পানি ১.৫ লিটার",
+    "code": "117",
+    "catalogRef": "menu-items-english-bangla:99",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-100",
+    "name": "Water 1 Liter",
+    "nameBn": "পানি ১ লিটার",
+    "code": "204",
+    "catalogRef": "menu-items-english-bangla:100",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-101",
+    "name": "Water 2 Liter",
+    "nameBn": "পানি ২ লিটার",
+    "code": "206",
+    "catalogRef": "menu-items-english-bangla:101",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-102",
+    "name": "Soft Drinks",
+    "nameBn": "কোমল পানীয়",
+    "code": "119",
+    "catalogRef": "menu-items-english-bangla:102",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-103",
+    "name": "Soft Drinks (Tk 20)",
+    "nameBn": "কোমল পানীয় (২০ টাকা)",
+    "code": "120",
+    "catalogRef": "menu-items-english-bangla:103",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-104",
+    "name": "Soft Drinks Can",
+    "nameBn": "কোমল পানীয় ক্যান",
+    "code": "121",
+    "catalogRef": "menu-items-english-bangla:104",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-105",
+    "name": "Soft Drinks 1 Liter",
+    "nameBn": "কোমল পানীয় ১ লিটার",
+    "code": "122",
+    "catalogRef": "menu-items-english-bangla:105",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-106",
+    "name": "Malta Juice",
+    "nameBn": "মাল্টার জুস",
+    "code": "123",
+    "catalogRef": "menu-items-english-bangla:106",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-107",
+    "name": "One Time Plate",
+    "nameBn": "ওয়ান টাইম প্লেট",
+    "code": "124",
+    "catalogRef": "menu-items-english-bangla:107",
+    "category": "Packaging",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-108",
+    "name": "One Time Glass",
+    "nameBn": "ওয়ান টাইম গ্লাস",
+    "code": "125",
+    "catalogRef": "menu-items-english-bangla:108",
+    "category": "Packaging",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "কোডের অংশ ঢাকা; সম্ভাব্য পাঠ 125—যাচাই করুন।"
+  },
+  {
+    "id": "excel-menu-109",
+    "name": "Mogoj Bhuna Half",
+    "nameBn": "মগজ ভুনা হাফ",
+    "code": "126",
+    "catalogRef": "menu-items-english-bangla:109",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "কোড অস্পষ্ট; সম্ভাব্য পাঠ 126—যাচাই করুন।"
+  },
+  {
+    "id": "excel-menu-110",
+    "name": "Mogoj Bhuna Full",
+    "nameBn": "মগজ ভুনা ফুল",
+    "code": "127",
+    "catalogRef": "menu-items-english-bangla:110",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "কোড অস্পষ্ট; সম্ভাব্য পাঠ 127—যাচাই করুন।"
+  },
+  {
+    "id": "curry-bhuna-chicken-roast-0",
+    "name": "Chicken Roast",
+    "nameBn": "চিকেন রোস্ট",
+    "code": "192",
+    "catalogRef": "menu-items-english-bangla:111",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": 140,
+    "active": true,
+    "codeNote": "কোড অস্পষ্ট; সম্ভাব্য পাঠ 192—যাচাই করুন।"
+  },
+  {
+    "id": "tea-coffee-molasses-tea-small-0",
+    "name": "Molasses Tea Normal",
+    "nameBn": "গুড়ের চা নরমাল",
+    "code": "154",
+    "catalogRef": "menu-items-english-bangla:112",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 30,
+    "active": true,
+    "aliases": [
+      "Molasses Tea"
+    ]
+  },
+  {
+    "id": "tea-coffee-molasses-tea-special-0",
+    "name": "Molasses Tea Special",
+    "nameBn": "গুড়ের চা স্পেশাল",
+    "code": "155",
+    "catalogRef": "menu-items-english-bangla:113",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 40,
+    "active": true,
+    "aliases": [
+      "Molasses Tea"
+    ]
+  },
+  {
+    "id": "excel-menu-114",
+    "name": "Lai Pata Bhorta Half",
+    "nameBn": "লাইপাতা ভর্তা হাফ",
+    "code": "158",
+    "catalogRef": "menu-items-english-bangla:114",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "কোড অস্পষ্ট; সম্ভাব্য পাঠ 158—যাচাই করুন।"
+  },
+  {
+    "id": "excel-menu-115",
+    "name": "Lai Pata Bhorta Full",
+    "nameBn": "লাইপাতা ভর্তা ফুল",
+    "code": "159",
+    "catalogRef": "menu-items-english-bangla:115",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-116",
+    "name": "Hilsha Bhuna",
+    "nameBn": "ইলিশ ভুনা",
+    "code": "156",
+    "catalogRef": "menu-items-english-bangla:116",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-117",
+    "name": "Prawn Do-Piaza Half",
+    "nameBn": "চিংড়ি দোপেঁয়াজা হাফ",
+    "code": "167",
+    "catalogRef": "menu-items-english-bangla:117",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-118",
+    "name": "Prawn Do-Piaza Full",
+    "nameBn": "চিংড়ি দোপেঁয়াজা ফুল",
+    "code": "168",
+    "catalogRef": "menu-items-english-bangla:118",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-119",
+    "name": "Shutki Bhuna Half",
+    "nameBn": "শুঁটকি ভুনা হাফ",
+    "code": "169",
+    "catalogRef": "menu-items-english-bangla:119",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-120",
+    "name": "Shutki Bhuna Full",
+    "nameBn": "শুঁটকি ভুনা ফুল",
+    "code": "170",
+    "catalogRef": "menu-items-english-bangla:120",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "tea-coffee-cold-coffee-0",
+    "name": "Cold Coffee",
+    "nameBn": "কোল্ড কফি",
+    "code": "171",
+    "catalogRef": "menu-items-english-bangla:121",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 120,
+    "active": true
+  },
+  {
+    "id": "faluda-dessert-firni-0",
+    "name": "Firni",
+    "nameBn": "ফিরনি",
+    "code": "172",
+    "catalogRef": "menu-items-english-bangla:122",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 35,
+    "active": true,
+    "codeNote": "মূল Excel-এ 35 ডুপ্লিকেট ছিল। ব্যবহারকারীর অনুমোদনে Firni-এর কোড 172 নির্ধারিত।"
+  },
+  {
+    "id": "excel-menu-123",
+    "name": "Chicken Akhni",
+    "nameBn": "চিকেন আখনি",
+    "code": "173",
+    "catalogRef": "menu-items-english-bangla:123",
+    "category": "Biriyani",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "নাম অস্পষ্ট; সম্ভাব্য পাঠ Chicken Akhni—যাচাই করুন।"
+  },
+  {
+    "id": "rice-sides-achar-0",
+    "name": "Asar",
+    "nameBn": "আচার",
+    "code": "174",
+    "catalogRef": "menu-items-english-bangla:124",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "ছবিতে Asar; বাংলা নাম সম্ভাব্য পাঠ—যাচাই করুন।",
+    "aliases": [
+      "Achar"
+    ]
+  },
+  {
+    "id": "excel-menu-125",
+    "name": "Kolmi Shak",
+    "nameBn": "কলমি শাক",
+    "code": "188",
+    "catalogRef": "menu-items-english-bangla:125",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "নাম অস্পষ্ট; সম্ভাব্য পাঠ Kolmi Shak—যাচাই করুন।"
+  },
+  {
+    "id": "rice-sides-potol-bhorta-0",
+    "name": "Potol Vorta",
+    "nameBn": "পটল ভর্তা",
+    "code": "190",
+    "catalogRef": "menu-items-english-bangla:126",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": 40,
+    "active": true,
+    "aliases": [
+      "Potol Bhorta"
+    ]
+  },
+  {
+    "id": "excel-menu-127",
+    "name": "Green Apple Juice",
+    "nameBn": "গ্রিন অ্যাপল জুস",
+    "code": "219",
+    "catalogRef": "menu-items-english-bangla:127",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "excel-menu-128",
+    "name": "Boroti Bhaji",
+    "nameBn": "বরবটি ভাজি",
+    "code": "227",
+    "catalogRef": "menu-items-english-bangla:128",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "নাম অস্পষ্ট; সম্ভাব্য পাঠ Boroti Bhaji—যাচাই করুন।"
+  },
+  {
+    "id": "default-menu-728fcf892e25908f2ae0",
+    "name": "Chicken Khichuri",
+    "nameBn": "চিকেন খিচুড়ি",
+    "code": "228",
+    "category": "Breakfast",
+    "station": "Main Kitchen",
+    "price": 100,
+    "active": true
+  },
+  {
+    "id": "default-menu-7561f4584d3b96e92a55",
+    "name": "Dherosh Bhaji",
+    "nameBn": "ঢেঁড়স ভাজি",
+    "code": "229",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": 40,
+    "active": true
+  },
+  {
+    "id": "default-menu-b50164d949b0a9436955",
+    "name": "Mix Salad",
+    "nameBn": "মিক্স সালাদ",
+    "code": "230",
+    "category": "Rice & Sides",
+    "station": "Main Kitchen",
+    "price": 80,
+    "active": true
+  },
+  {
+    "id": "default-menu-5eea0e34c5c3c070761a",
+    "name": "Chicken Jhal fry",
+    "nameBn": "চিকেন ঝাল ফ্রাই",
+    "code": "231",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "দাম নিশ্চিত করুন: তালিকায় 160, 320 টাকা আছে।"
+  },
+  {
+    "id": "default-menu-f69028d9a7de8a91599b",
+    "name": "Mutton/Lamb Curry",
+    "nameBn": "মাটন কারি",
+    "code": "232",
+    "category": "Curry & Bhuna",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false,
+    "codeNote": "দাম নিশ্চিত করুন: তালিকায় 260, 520 টাকা আছে।"
+  },
+  {
+    "id": "default-menu-7ce327c304123b122d08",
+    "name": "Hilsa Fish",
+    "nameBn": "ইলিশ মাছ",
+    "code": "233",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-7f2da96c9a78e26ad0f4",
+    "name": "Baim Fish",
+    "nameBn": "বাইম মাছ",
+    "code": "234",
+    "category": "Fish",
+    "station": "Main Kitchen",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-ea41021dfa7688d52c13",
+    "name": "Fish Grill",
+    "nameBn": "ফিশ গ্রিল",
+    "code": "235",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-b05d9fc533cce18e5d87",
+    "name": "French Fry (1:1)",
+    "nameBn": "ফ্রেঞ্চ ফ্রাই (১:১)",
+    "code": "236",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 150,
+    "active": true
+  },
+  {
+    "id": "default-menu-ee7812d0b208eb53679e",
+    "name": "Chicken Chaap Masala",
+    "nameBn": "চিকেন চাপ মাসালা",
+    "code": "237",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 230,
+    "active": true
+  },
+  {
+    "id": "default-menu-df3fe753fa6b8c8c9166",
+    "name": "Mutton Chaap",
+    "nameBn": "মাটন চাপ",
+    "code": "238",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 230,
+    "active": true
+  },
+  {
+    "id": "default-menu-22c764a5c623b10f94d1",
+    "name": "Chicken Tawa",
+    "nameBn": "চিকেন তাওয়া",
+    "code": "239",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 170,
+    "active": true
+  },
+  {
+    "id": "default-menu-98285351dcef59a0f820",
+    "name": "Mutton Tawa",
+    "nameBn": "মাটন তাওয়া",
+    "code": "240",
+    "category": "Grill & Kebab",
+    "station": "BBQ",
+    "price": 180,
+    "active": true
+  },
+  {
+    "id": "default-menu-9843bcd6ef1ed9bcb3c0",
+    "name": "Ice Lemon Tea",
+    "nameBn": "আইস লেমন টি",
+    "code": "241",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-0949d074412eaab87ae1",
+    "name": "Ice Orange Tea",
+    "nameBn": "আইস অরেঞ্জ টি",
+    "code": "242",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 150,
+    "active": true
+  },
+  {
+    "id": "default-menu-8e9c543a5078f2145191",
+    "name": "Coke",
+    "nameBn": "কোক",
+    "code": "243",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-4a046e33ecf7aced9bfd",
+    "name": "Sprite",
+    "nameBn": "স্প্রাইট",
+    "code": "244",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-5330e8f20aac22d5c299",
+    "name": "Pepsi",
+    "nameBn": "পেপসি",
+    "code": "245",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  },
+  {
+    "id": "default-menu-e4059b1bd30aa593719e",
+    "name": "Mint Lemonade",
+    "nameBn": "মিন্ট লেমোনেড",
+    "code": "246",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 100,
+    "active": true
+  },
+  {
+    "id": "default-menu-41c35784a34a632a3c05",
+    "name": "Beef Shawarma",
+    "nameBn": "বিফ শাওয়ারমা",
+    "code": "247",
+    "category": "Shawarma",
+    "station": "BBQ",
+    "price": 200,
+    "active": true
+  },
+  {
+    "id": "default-menu-aa3b151d4181ab875166",
+    "name": "Chicken Shawarma",
+    "nameBn": "চিকেন শাওয়ারমা",
+    "code": "248",
+    "category": "Shawarma",
+    "station": "BBQ",
+    "price": 180,
+    "active": true
+  },
+  {
+    "id": "default-menu-d55923321bef9fc8c5ff",
+    "name": "Tuna Fish Shawarma",
+    "nameBn": "টুনা ফিশ শাওয়ারমা",
+    "code": "249",
+    "category": "Shawarma",
+    "station": "BBQ",
+    "price": 190,
+    "active": true
+  },
+  {
+    "id": "default-menu-7f5756c475bfa696e568",
+    "name": "Chicken Pizza (8 inch)",
+    "nameBn": "চিকেন পিৎজা (৮ ইঞ্চি)",
+    "code": "250",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 630,
+    "active": true
+  },
+  {
+    "id": "default-menu-d23e05559d316cd3a4a0",
+    "name": "Chicken Pizza (10 inch)",
+    "nameBn": "চিকেন পিৎজা (১০ ইঞ্চি)",
+    "code": "251",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 750,
+    "active": true
+  },
+  {
+    "id": "default-menu-c27e3ddc161ebe84411d",
+    "name": "Chicken Pizza (12 inch)",
+    "nameBn": "চিকেন পিৎজা (১২ ইঞ্চি)",
+    "code": "252",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 830,
+    "active": true
+  },
+  {
+    "id": "default-menu-ecdfb39bca1da14d47f6",
+    "name": "Barcelona Pizza (8 inch)",
+    "nameBn": "বার্সেলোনা পিৎজা (৮ ইঞ্চি)",
+    "code": "253",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 750,
+    "active": true
+  },
+  {
+    "id": "default-menu-3b01db7d6c7cd76ded4f",
+    "name": "Barcelona Pizza (10 inch)",
+    "nameBn": "বার্সেলোনা পিৎজা (১০ ইঞ্চি)",
+    "code": "254",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 850,
+    "active": true
+  },
+  {
+    "id": "default-menu-5bc58bbc58490e3ae7e9",
+    "name": "Barcelona Pizza (12 inch)",
+    "nameBn": "বার্সেলোনা পিৎজা (১২ ইঞ্চি)",
+    "code": "255",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 950,
+    "active": true
+  },
+  {
+    "id": "default-menu-8b978b0cd11d78804853",
+    "name": "Tuna Fish Pizza (8 inch)",
+    "nameBn": "টুনা ফিশ পিৎজা (৮ ইঞ্চি)",
+    "code": "256",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 700,
+    "active": true
+  },
+  {
+    "id": "default-menu-63f1bc1e23a0af58c2eb",
+    "name": "Tuna Fish Pizza (10 inch)",
+    "nameBn": "টুনা ফিশ পিৎজা (১০ ইঞ্চি)",
+    "code": "257",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 800,
+    "active": true
+  },
+  {
+    "id": "default-menu-dbdf07c694d3ea462797",
+    "name": "Tuna Fish Pizza (12 inch)",
+    "nameBn": "টুনা ফিশ পিৎজা (১২ ইঞ্চি)",
+    "code": "258",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 900,
+    "active": true
+  },
+  {
+    "id": "default-menu-41c8d93c9e9b384b6d1d",
+    "name": "Sausage Pizza (8 inch)",
+    "nameBn": "সসেজ পিৎজা (৮ ইঞ্চি)",
+    "code": "259",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 600,
+    "active": true
+  },
+  {
+    "id": "default-menu-23080b67bead0c250233",
+    "name": "Sausage Pizza (10 inch)",
+    "nameBn": "সসেজ পিৎজা (১০ ইঞ্চি)",
+    "code": "260",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 730,
+    "active": true
+  },
+  {
+    "id": "default-menu-6484c6285304781faeb2",
+    "name": "Sausage Pizza (12 inch)",
+    "nameBn": "সসেজ পিৎজা (১২ ইঞ্চি)",
+    "code": "261",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 850,
+    "active": true
+  },
+  {
+    "id": "default-menu-f4533510bdc708558b3c",
+    "name": "Margherita Pizza (8 inch)",
+    "nameBn": "মার্গারিটা পিৎজা (৮ ইঞ্চি)",
+    "code": "262",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 500,
+    "active": true
+  },
+  {
+    "id": "default-menu-860028282ac7e99b48a8",
+    "name": "Margherita Pizza (10 inch)",
+    "nameBn": "মার্গারিটা পিৎজা (১০ ইঞ্চি)",
+    "code": "263",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 600,
+    "active": true
+  },
+  {
+    "id": "default-menu-528a6d12f5c66053482f",
+    "name": "Margherita Pizza (12 inch)",
+    "nameBn": "মার্গারিটা পিৎজা (১২ ইঞ্চি)",
+    "code": "264",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 700,
+    "active": true
+  },
+  {
+    "id": "default-menu-4fc50310afdb0f02e20a",
+    "name": "Vegetable Pizza (8 inch)",
+    "nameBn": "ভেজিটেবল পিৎজা (৮ ইঞ্চি)",
+    "code": "265",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 600,
+    "active": true
+  },
+  {
+    "id": "default-menu-a7b5e6b5358493ed3ea6",
+    "name": "Vegetable Pizza (10 inch)",
+    "nameBn": "ভেজিটেবল পিৎজা (১০ ইঞ্চি)",
+    "code": "266",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 700,
+    "active": true
+  },
+  {
+    "id": "default-menu-01233c076c126b995561",
+    "name": "Vegetable Pizza (12 inch)",
+    "nameBn": "ভেজিটেবল পিৎজা (১২ ইঞ্চি)",
+    "code": "267",
+    "category": "Pizza",
+    "station": "BBQ",
+    "price": 900,
+    "active": true
+  },
+  {
+    "id": "default-menu-85aaf1634b9338cc6fd5",
+    "name": "Pasta Basta",
+    "nameBn": "পাস্তা বাস্তা",
+    "code": "268",
+    "category": "Pasta",
+    "station": "BBQ",
+    "price": 300,
+    "active": true
+  },
+  {
+    "id": "default-menu-79425a69b20a156de289",
+    "name": "Beef Pasta",
+    "nameBn": "বিফ পাস্তা",
+    "code": "269",
+    "category": "Pasta",
+    "station": "BBQ",
+    "price": 320,
+    "active": true
+  },
+  {
+    "id": "default-menu-ccacf75a840302a8ba0d",
+    "name": "Chicken Naga Pasta",
+    "nameBn": "চিকেন নাগা পাস্তা",
+    "code": "270",
+    "category": "Pasta",
+    "station": "BBQ",
+    "price": 330,
+    "active": true
+  },
+  {
+    "id": "default-menu-e78630ede70212a01875",
+    "name": "Hot Chocolate",
+    "nameBn": "হট চকলেট",
+    "code": "271",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-cbd4aed2be978b65de08",
+    "name": "Chocolate Cold Coffee",
+    "nameBn": "চকলেট কোল্ড কফি",
+    "code": "272",
+    "category": "Tea & Coffee",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-5aefc491ae7047bac10b",
+    "name": "Sweet Lassi",
+    "nameBn": "মিষ্টি লাচ্ছি",
+    "code": "273",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 110,
+    "active": true
+  },
+  {
+    "id": "default-menu-f11acb757dccf833b833",
+    "name": "Chocolate Lassi",
+    "nameBn": "চকলেট লাচ্ছি",
+    "code": "274",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-bedd3faaa3fb6094f304",
+    "name": "Strawberry Lassi",
+    "nameBn": "স্ট্রবেরি লাচ্ছি",
+    "code": "275",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-babb6e95d8f33f80d852",
+    "name": "Mango Lassi",
+    "nameBn": "ম্যাঙ্গো লাচ্ছি",
+    "code": "276",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 140,
+    "active": true
+  },
+  {
+    "id": "default-menu-1da4bfcb5e29ab71e978",
+    "name": "Alpine Chef Special Lassi",
+    "nameBn": "আলপাইন শেফ স্পেশাল লাচ্ছি",
+    "code": "277",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 150,
+    "active": true
+  },
+  {
+    "id": "default-menu-164be851d8c7f389ff24",
+    "name": "Salt Lassi",
+    "nameBn": "লবণ লাচ্ছি",
+    "code": "278",
+    "category": "Lassi",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-948c5ae0b999d4f73f28",
+    "name": "Alpine Classic Special Faluda",
+    "nameBn": "আলপাইন ক্লাসিক স্পেশাল ফালুদা",
+    "code": "279",
+    "category": "Faluda & Dessert",
+    "station": "Drinks",
+    "price": 200,
+    "active": true
+  },
+  {
+    "id": "default-menu-8e5dafcb91ed19186aee",
+    "name": "Vanilla Shake",
+    "nameBn": "ভ্যানিলা শেক",
+    "code": "280",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 160,
+    "active": true,
+    "aliases": [
+      "Vanila"
+    ]
+  },
+  {
+    "id": "default-menu-797f089dae69ee45a309",
+    "name": "Mango Shake",
+    "nameBn": "ম্যাঙ্গো শেক",
+    "code": "281",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 160,
+    "active": true,
+    "aliases": [
+      "Mango"
+    ]
+  },
+  {
+    "id": "default-menu-6ad631d1a92e2535e0e4",
+    "name": "Strawberry Shake",
+    "nameBn": "স্ট্রবেরি শেক",
+    "code": "282",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 160,
+    "active": true,
+    "aliases": [
+      "Strawberry"
+    ]
+  },
+  {
+    "id": "default-menu-54a3c83fb3667aa1fcfb",
+    "name": "Chocolate Shake",
+    "nameBn": "চকলেট শেক",
+    "code": "283",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 160,
+    "active": true,
+    "aliases": [
+      "Chocolate"
+    ]
+  },
+  {
+    "id": "default-menu-bd7efc6f13f4bd7d4f1b",
+    "name": "Oreo Shake",
+    "nameBn": "ওরিও শেক",
+    "code": "284",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 180,
+    "active": true,
+    "aliases": [
+      "Orio Shake"
+    ]
+  },
+  {
+    "id": "default-menu-7f7da2db5317b38af630",
+    "name": "Kitkat Shake",
+    "nameBn": "কিটক্যাট শেক",
+    "code": "285",
+    "category": "Milk Shake",
+    "station": "Drinks",
+    "price": 190,
+    "active": true
+  },
+  {
+    "id": "default-menu-bf2349d2685d44b575dc",
+    "name": "Virgin Mint",
+    "nameBn": "ভার্জিন মিন্ট",
+    "code": "286",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 140,
+    "active": true
+  },
+  {
+    "id": "default-menu-0bb8805aae976283c293",
+    "name": "Blue Ocean Cooler",
+    "nameBn": "ব্লু ওশান কুলার",
+    "code": "287",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 180,
+    "active": true
+  },
+  {
+    "id": "default-menu-72111c22f4a5d894ee89",
+    "name": "Sunrise Light Mojito",
+    "nameBn": "সানরাইজ লাইট মোহিতো",
+    "code": "288",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 170,
+    "active": true
+  },
+  {
+    "id": "default-menu-84921afe979d103eb79b",
+    "name": "Rainbow Paradise",
+    "nameBn": "রেইনবো প্যারাডাইস",
+    "code": "289",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 190,
+    "active": true
+  },
+  {
+    "id": "default-menu-a59ca02f6b50fb77ee9d",
+    "name": "Kiwi Mojito",
+    "nameBn": "কিউই মোহিতো",
+    "code": "290",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 170,
+    "active": true
+  },
+  {
+    "id": "default-menu-c31bbd0ec5ba08bee8fc",
+    "name": "Kiwi Fantasy",
+    "nameBn": "কিউই ফ্যান্টাসি",
+    "code": "291",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 160,
+    "active": true
+  },
+  {
+    "id": "default-menu-57f99a72f2b38c5ca751",
+    "name": "Blueberry Mojito Spritzer",
+    "nameBn": "ব্লুবেরি মোহিতো স্প্রিটজার",
+    "code": "292",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 170,
+    "active": true
+  },
+  {
+    "id": "default-menu-6f0124e13ffa47747e0d",
+    "name": "Blueberry Fantasy",
+    "nameBn": "ব্লুবেরি ফ্যান্টাসি",
+    "code": "293",
+    "category": "Mocktails",
+    "station": "Drinks",
+    "price": 180,
+    "active": true
+  },
+  {
+    "id": "default-menu-bb3c78a5ebceae972f96",
+    "name": "Orange Juice",
+    "nameBn": "কমলার জুস",
+    "code": "294",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 130,
+    "active": true
+  },
+  {
+    "id": "default-menu-3a619726d53bc8d670e0",
+    "name": "Apple Juice",
+    "nameBn": "আপেলের জুস",
+    "code": "295",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 120,
+    "active": true
+  },
+  {
+    "id": "default-menu-af2e8551d3bd4c1cd118",
+    "name": "Mixed Fruit Juice",
+    "nameBn": "মিক্সড ফ্রুট জুস",
+    "code": "296",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 180,
+    "active": true
+  },
+  {
+    "id": "default-menu-33d423412e9e12e81845",
+    "name": "Mango Juice",
+    "nameBn": "আমের জুস",
+    "code": "297",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": 120,
+    "active": true
+  },
+  {
+    "id": "default-menu-b7d13a6ad45c85b1d4b0",
+    "name": "Seasonal Fruit Juice",
+    "nameBn": "মৌসুমি ফলের জুস",
+    "code": "298",
+    "category": "Juice & Drinks",
+    "station": "Drinks",
+    "price": null,
+    "active": false
+  }
+]

@@ -1,16 +1,10 @@
 import { readFile } from "node:fs/promises";
 import assert from "node:assert/strict";
-import ts from "typescript";
-const source = await readFile(
-  new URL("../data/menu.ts", import.meta.url),
-  "utf8"
-);
-const { outputText } = ts.transpileModule(source, {
-  compilerOptions: { module: ts.ModuleKind.ES2022 },
-});
-const { menu } = await import(
-  `data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`
-);
+const menu=JSON.parse(await readFile(new URL("../data/defaultMenu.json",import.meta.url),"utf8"));
+const source=await readFile(new URL("../data/menu.ts",import.meta.url),"utf8");
+assert(source.includes('./defaultMenu.json'),"Admin must use the reviewed default JSON");
+assert.equal(new Set(menu.map(m=>m.code)).size,menu.length,"Every item code must be unique");
+assert(menu.every(m=>m.code&&m.nameBn),"All default items require codes and Bengali names");
 assert.equal(
   new Set(menu.map((i) => i.id)).size,
   menu.length,
@@ -32,7 +26,7 @@ assert.equal(
   "Portion notation must not corrupt the item price"
 );
 assert.equal(
-  menu.find((i) => i.name === "Special Family Faluda")?.active,
+  menu.find((i) => i.code === "38")?.active,
   false
 );
 console.log(
