@@ -13,6 +13,7 @@ export const routePermissions: Record<string, Permission> = {
   "/users": "users:manage",
 };
 export function canAccessPath(user: AuthUser, path: string) {
+  if (path === "/developer" || path.startsWith("/developer/")) return user.role === "owner";
   const route = Object.keys(routePermissions).find(
     (base) => path === base || path.startsWith(base + "/")
   );
