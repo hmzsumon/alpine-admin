@@ -4,6 +4,7 @@ import type { AuthUser, Permission } from "@/types/auth";
 export const routePermissions: Record<string, Permission> = {
   "/dashboard": "overview:read",
   "/orders": "orders:read",
+  "/bill": "payments:collect",
   "/menu": "menu:read",
   "/procurement": "procurement:read",
   "/procurement-print": "procurement:read",

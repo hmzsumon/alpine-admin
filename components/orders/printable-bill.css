@@ -1,0 +1,38 @@
+/* ────────── screen preview and thermal-paper printing ────────── */
+.bill-preview-page { min-height:100vh; background:#11121c; padding:24px 16px 48px; }
+.bill-preview-toolbar { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:auto; max-width:760px; }
+.bill-preview-toolbar a,.bill-preview-toolbar button { display:inline-flex; align-items:center; gap:7px; background:#232333; color:#eef0f7; border:1px solid #39394b; border-radius:9px; padding:11px 14px; font-size:14px; text-decoration:none; }
+.bill-preview-toolbar .bill-print-button { background:#079b7a; border-color:#079b7a; color:white; }
+.bill-preview-help { max-width:650px; margin:16px auto 24px; color:#a9afc2; font-size:13px; line-height:1.8; text-align:center; }
+.bill-receipt { box-sizing:border-box; width:80mm; max-width:100%; margin:0 auto; padding:5mm 3mm; background:white; color:#111; box-shadow:0 12px 40px #0005; font-family:Arial,sans-serif; font-size:12px; line-height:1.5; }
+.bill-receipt header { text-align:center; margin-bottom:10px; }
+.bill-receipt h1 { font-size:26px; letter-spacing:3px; margin:0; line-height:1.2; }
+.bill-receipt h2 { font-size:12px; letter-spacing:4px; margin:0 0 5px; }
+.bill-receipt h3 { font-size:15px; margin:8px 0; }
+.bill-receipt p { margin:3px 0; }
+.bill-status { text-align:center; font-weight:700; border-block:1px dashed #555; padding:6px 0; }
+.bill-meta { margin:10px 0; }
+.bill-meta div { display:flex; justify-content:space-between; gap:8px; margin:4px 0; }
+.bill-meta dt { flex-shrink:0; }
+.bill-meta dd { margin:0; text-align:right; overflow-wrap:anywhere; min-width:0; }
+.bill-receipt .bill-items { width:100%; border-collapse:collapse; table-layout:fixed; font-size:12px; }
+.bill-items thead { background:none; }
+.bill-receipt .bill-items th,.bill-receipt .bill-items td { padding:7px 0; border-bottom:1px dashed #aaa; color:#111; background:white; border-top:0; white-space:normal; vertical-align:top; text-align:left; }
+.bill-items th:last-child,.bill-items td:last-child { width:26%; text-align:right!important; overflow-wrap:anywhere; }
+.bill-items strong { color:#111; font-weight:600; display:block; overflow-wrap:anywhere; }
+.bill-items small { display:block; font-size:11px; }
+.bill-totals { padding-top:8px; }
+.bill-totals p { display:flex; justify-content:space-between; gap:8px; }
+.bill-grand-total { border-top:1px solid #222; padding-top:7px; margin-top:7px!important; font-size:15px; }
+.bill-payment { margin-top:10px; padding-top:8px; border-top:1px dashed #777; text-align:center; }
+.bill-receipt footer { margin-top:15px; text-align:center; font-size:10px; overflow-wrap:anywhere; }
+.bill-receipt footer strong { display:block; margin-top:9px; font-size:12px; }
+@media print {
+  @page { size:auto; margin:3mm; }
+  html,body { background:white!important; color:black!important; }
+  .bill-preview-page { background:white; padding:0; min-height:0; }
+  .bill-preview-toolbar,.bill-preview-help { display:none!important; }
+  .bill-receipt { width:74mm; max-width:100%; margin:0; padding:0; box-shadow:none; color:black; }
+  .bill-items tr,.bill-totals,.bill-payment { break-inside:avoid; }
+  .bill-items thead { display:table-header-group; }
+}
