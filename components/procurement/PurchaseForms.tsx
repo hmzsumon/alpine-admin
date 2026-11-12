@@ -1,5 +1,7 @@
 /* ── Components: demand, actual receipt and supplier payment forms ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import { useState, useEffect } from "react";
 import { rawRequest } from "@/lib/procurement";
 import type { RawView, RawCommand, RawRecord } from "@/types/procurement";
@@ -23,13 +25,13 @@ export function PaymentFields() {
       <Num name="amount" label="কত টাকা? (৳) *" required />
       <label>
         মাধ্যম
-        <select name="method">
+        <SearchableSelect name="method">
           {Object.entries(methods).map(([k, v]) => (
             <option key={k} value={k}>
               {v}
             </option>
           ))}
-        </select>
+        </SearchableSelect>
       </label>
       <Field
         name="reference"
@@ -52,7 +54,7 @@ function SupplierSelect({
   return (
     <label>
       ব্যাপারী *
-      <select required value={value} onChange={(e) => set(e.target.value)}>
+      <SearchableSelect required value={value} onChange={(e) => set(e.target.value)}>
         <option value="">ব্যাপারী বাছুন</option>
         {data.catalog.suppliers
           .filter((s) => s.active)
@@ -61,7 +63,7 @@ function SupplierSelect({
               {s.name} · {s.phone}
             </option>
           ))}
-      </select>
+      </SearchableSelect>
     </label>
   );
 }
@@ -212,7 +214,7 @@ export function ReceiptForm({
       />
       <label>
         কোন চাহিদার বিপরীতে?
-        <select value={demandId} onChange={(e) => selectDemand(e.target.value)}>
+        <SearchableSelect value={demandId} onChange={(e) => selectDemand(e.target.value)}>
           <option value="">চাহিদা ছাড়া সরাসরি ক্রয়</option>
           {data.demands
             .filter(
@@ -225,7 +227,7 @@ export function ReceiptForm({
                 {d.no} · {d.date}
               </option>
             ))}
-        </select>
+        </SearchableSelect>
       </label>
       <LocationSelect data={data} />
       {remaining && (
@@ -360,7 +362,7 @@ export function FinanceForm({
           </p>
           <label>
             কোন চাহিদার অগ্রিম? (ঐচ্ছিক)
-            <select name="demandId" defaultValue={initialDemand}>
+            <SearchableSelect name="demandId" defaultValue={initialDemand}>
               <option value="">ব্যাপারীর সাধারণ হিসাবে</option>
               {data.demands
                 .filter((d) => d.data.supplierId === supplierId)
@@ -369,11 +371,11 @@ export function FinanceForm({
                     {d.no}
                   </option>
                 ))}
-            </select>
+            </SearchableSelect>
           </label>
           <label>
             নির্দিষ্ট ক্রয় বিল (ঐচ্ছিক)
-            <select
+            <SearchableSelect
               name="receiptId"
               value={receiptId}
               onChange={(e) => setReceipt(e.target.value)}
@@ -384,7 +386,7 @@ export function FinanceForm({
                   {r.no} · {r.date} · {taka(r.data.total)}
                 </option>
               ))}
-            </select>
+            </SearchableSelect>
           </label>
           {receiptMore && (
             <button
@@ -421,7 +423,11 @@ export function FinanceForm({
           </label>
         </>
       )}
-      <DateNote date={data.date} noteRequired={mode === "adjustment"} />
+      <DateNote
+        date={data.date}
+        noteRequired={mode === "adjustment"}
+        reasonType={mode}
+      />
       <Save busy={busy} />
     </form>
   );

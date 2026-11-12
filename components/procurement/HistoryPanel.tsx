@@ -1,5 +1,7 @@
 /* ── Component: paged, filterable history retains older supplier/stock activity ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import { useEffect, useState } from "react";
 import { rawRequest } from "@/lib/procurement";
 import type { RawView } from "@/types/procurement";
@@ -52,7 +54,7 @@ export default function HistoryPanel({
           <h3>সব কাজের ইতিহাস</h3>
           <p>সময়, দায়িত্বপ্রাপ্ত ব্যক্তি, বিল, পেমেন্ট ও স্টকের রেকর্ড</p>
         </div>
-        <select
+        <SearchableSelect
           value={kind}
           onChange={(e) => {
             setKind(e.target.value);
@@ -65,7 +67,7 @@ export default function HistoryPanel({
               {v}
             </option>
           ))}
-        </select>
+        </SearchableSelect>
       </div>
       <div className="form-grid raw-pad">
         <label>
@@ -92,7 +94,7 @@ export default function HistoryPanel({
         </label>
         <label>
           ব্যাপারী
-          <select
+          <SearchableSelect
             value={supplier}
             onChange={(e) => {
               setSupplier(e.target.value);
@@ -105,7 +107,7 @@ export default function HistoryPanel({
                 {s.name}
               </option>
             ))}
-          </select>
+          </SearchableSelect>
         </label>
       </div>
       {error && <p className="form-error">{error}</p>}

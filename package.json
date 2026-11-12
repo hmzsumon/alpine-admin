@@ -6,7 +6,8 @@
     "dev": "next dev -H 127.0.0.1 -p 3100",
     "build": "next build",
     "start": "next start -H 127.0.0.1 -p 3100",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:dropdown": "node --test tests/dropdown-search.test.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.544.0",

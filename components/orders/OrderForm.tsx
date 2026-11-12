@@ -1,5 +1,7 @@
 /* ── Component: OrderForm; one bill with separate dine-in and parcel lines ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import { matchesMenuSearch } from "@/utils/menuSearch";
 import { useRef, useState } from "react";
 import { useAuth } from "@/providers/AuthProvider";
@@ -40,7 +42,7 @@ export default function OrderForm() {
     {uncertain && <p className="info-note">আগের অনুরোধের নিশ্চয়তা বাকি। নিচের বোতামে একই অনুরোধ আবার পাঠান; নতুন অর্ডার তৈরি করবেন না।</p>}
     <fieldset disabled={busy || sending || uncertain} className="order-fulfillment-fields">
       <div className="form-grid"><label>অর্ডারের ধরন<select value={type} disabled={!!original} onChange={(e) => { setType(e.target.value as typeof type); setCart({}); }}><option value="dine_in">এখানে খাবেন + চাইলে পার্সেল</option><option value="takeaway">শুধু পার্সেল — টেবিল লাগবে না</option></select></label>
-      {type === "dine_in" && <label>টেবিল<select required value={orderTable} disabled={!!original} onChange={(e) => setOrderTable(e.target.value)}>{tables.map((t) => <option key={t.id} value={t.id}>{t.name} · {t.id}</option>)}</select></label>}
+      {type === "dine_in" && <label>টেবিল<SearchableSelect required value={orderTable} disabled={!!original} onChange={(e) => setOrderTable(e.target.value)}>{tables.map((t) => <option key={t.id} value={t.id}>{t.name} · {t.id}</option>)}</SearchableSelect></label>}
       <label>দায়িত্বপ্রাপ্ত কর্মী<input name="waiter" defaultValue={original?.waiter || user.name} readOnly={!!original || user.role === "waiter"} required /></label>
       {!original && <><label>কাস্টমারের নাম (ঐচ্ছিক)<input name="customerName" maxLength={100} /></label><label>মোবাইল (ঐচ্ছিক)<input name="customerPhone" type="tel" maxLength={30} /></label><label>প্যাকিং চার্জ (৳)<input type="number" min={0} max={10000} step="0.01" value={charge} onChange={(e) => setCharge(e.target.value)} /></label></>}</div>
       <SearchBox value={search} onChange={setSearch} />

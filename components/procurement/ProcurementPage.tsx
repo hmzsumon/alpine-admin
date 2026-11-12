@@ -351,7 +351,11 @@ export default function ProcurementPage() {
                 এই চাহিদায় নতুন মাল নেওয়া বন্ধ হবে। আগের বিল, পেমেন্ট ও স্টক
                 থাকবে।
               </p>
-              <DateNote date={data.date} noteRequired />
+              <DateNote
+                date={data.date}
+                noteRequired
+                reasonType="demand_close"
+              />
               <Save busy={busy} label="চাহিদা বন্ধ করুন" />
             </form>
           )}

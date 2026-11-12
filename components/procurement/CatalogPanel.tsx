@@ -2,7 +2,7 @@
 "use client";
 import type { RawPanelProps } from "./panelTypes";
 import { Plus } from "lucide-react";
-import { units, stages } from "./shared";
+import { units, stages, locationKinds } from "./shared";
 export default function CatalogPanel({ data, manage, open }: RawPanelProps) {
   return (
     <>
@@ -61,7 +61,7 @@ export default function CatalogPanel({ data, manage, open }: RawPanelProps) {
       </section>
       <section className="panel raw-panel">
         <div className="panel-title">
-          <h3>স্টোর, ফ্রিজ ও কিচেন</h3>
+          <h3>স্টোর, প্রস্তুতকরণ ও কিচেনের স্থান</h3>
           {manage && (
             <button className="primary" onClick={() => open("location")}>
               <Plus size={16} />
@@ -74,11 +74,7 @@ export default function CatalogPanel({ data, manage, open }: RawPanelProps) {
             <div key={l.id}>
               <strong>{l.name}</strong>
               <small>
-                {l.kind === "freezer"
-                  ? "ফ্রিজ"
-                  : l.kind === "kitchen"
-                    ? "কিচেন"
-                    : "স্টোর"}
+                {locationKinds[l.kind] || l.kind}
                 {!l.active ? " · বন্ধ" : ""}
               </small>
               {manage && (

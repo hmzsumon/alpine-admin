@@ -1,5 +1,10 @@
 /* ── Component: supplier/product/location forms, independent of food menu ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
+import SupplierKindsField from "./SupplierKindsField";
+import SupplierPaymentFields from "./SupplierPaymentFields";
+import { locationKinds } from "./shared";
 import type {
   RawCommand,
   RawSupplier,
@@ -22,10 +27,11 @@ export function SupplierForm({
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const p = formData(e.currentTarget);
+        const { paymentAccountJson, ...p } = formData(e.currentTarget);
         if (
           await command("supplier", {
             ...p,
+            paymentAccount: JSON.parse(paymentAccountJson || "null"),
             ...(item ? { id: item.id, version: item.version } : {}),
             active: p.active !== "no",
           })
@@ -42,16 +48,10 @@ export function SupplierForm({
         />
         <Field name="contact" label="যোগাযোগের ব্যক্তি" value={item?.contact} />
         <Field name="phone" label="মোবাইল নম্বর" value={item?.phone} />
-        <Field name="bkash" label="বিকাশ / পেমেন্ট নম্বর" value={item?.bkash} />
-        <Field
-          name="kinds"
-          label="কোন মাল দেন? * (কমা দিয়ে আলাদা করুন)"
-          required
-          value={item?.kinds.join(", ")}
-          placeholder="মাছ, মাংস, মসলা"
-        />
+        <SupplierKindsField initial={item?.kinds} />
         <Field name="address" label="ঠিকানা" value={item?.address} />
       </div>
+      <SupplierPaymentFields item={item} />
       {!item && (
         <div className="form-grid">
           <Num
@@ -129,23 +129,23 @@ export function ProductForm({
         />
         <label>
           কোন এককে গুনবেন?
-          <select name="unit" defaultValue={item?.unit || "kg"}>
+          <SearchableSelect name="unit" defaultValue={item?.unit || "kg"}>
             {Object.entries(units).map(([k, v]) => (
               <option value={k} key={k}>
                 {v}
               </option>
             ))}
-          </select>
+          </SearchableSelect>
         </label>
         <label>
           পণ্যের অবস্থা
-          <select name="stage" defaultValue={item?.stage || "raw"}>
+          <SearchableSelect name="stage" defaultValue={item?.stage || "raw"}>
             {Object.entries(stages).map(([k, v]) => (
               <option value={k} key={k}>
                 {v}
               </option>
             ))}
-          </select>
+          </SearchableSelect>
         </label>
       </div>
       <label>
@@ -188,20 +188,21 @@ export function LocationForm({
           done();
       }}
     >
-      <Field
-        name="name"
-        label="স্থান / ফ্রিজ / কিচেনের নাম *"
-        required
-        value={item?.name}
-      />
+      <Field name="name" label="স্থানের নাম *" required value={item?.name} />
       <label>
         ধরন
-        <select name="kind" defaultValue={item?.kind || "store"}>
-          <option value="store">স্টোর</option>
-          <option value="freezer">ফ্রিজ</option>
-          <option value="kitchen">কিচেন</option>
-        </select>
+        <SearchableSelect name="kind" defaultValue={item?.kind || "store"}>
+          {Object.entries(locationKinds).map(([value, label]) => (
+            <option key={value} value={value}>
+              {label}
+            </option>
+          ))}
+        </SearchableSelect>
       </label>
+      <p className="raw-help">
+        মাছ, মাংস ও সবজি কাটা বা পরিষ্কার করার ঘরের জন্য ‘কাটিং / প্রস্তুতকরণ’
+        বাছুন।
+      </p>
       <label>
         অবস্থা
         <select

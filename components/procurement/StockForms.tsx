@@ -1,5 +1,7 @@
 /* ── Components: lot transformations, physical transfers and independent closing ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import { useState } from "react";
 import type { RawView, RawCommand, RawRecord } from "@/types/procurement";
 import {
@@ -72,7 +74,7 @@ export function StockForm({
           </p>
           <label>
             পণ্য
-            <select name="productId" required>
+            <SearchableSelect name="productId" required>
               <option value="">বাছুন</option>
               {data.catalog.products
                 .filter((p) => p.active)
@@ -81,7 +83,7 @@ export function StockForm({
                     {p.code} · {p.name} · {units[p.unit]}
                   </option>
                 ))}
-            </select>
+            </SearchableSelect>
           </label>
           <LocationSelect data={data} />
         </>
@@ -188,7 +190,11 @@ export function StockForm({
           </p>
         </>
       )}
-      <DateNote date={data.date} noteRequired={mode !== "transfer"} />
+      <DateNote
+        date={data.date}
+        noteRequired={mode !== "transfer"}
+        reasonType={mode}
+      />
       <Save busy={busy} />
     </form>
   );
@@ -272,7 +278,11 @@ export function TransferForm({
           )}
         </>
       )}
-      <DateNote date={data.date} noteRequired={mode === "resolve"} />
+      <DateNote
+        date={data.date}
+        noteRequired={mode === "resolve"}
+        reasonType={mode}
+      />
       <Save busy={busy} />
     </form>
   );

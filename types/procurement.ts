@@ -1,5 +1,12 @@
 /* ────────── independent purchasing and raw-material contracts; quantities in thousandths, money in poisha ────────── */
 export type RawUnit = "kg" | "piece" | "liter" | "gram" | "portion" | "pack";
+export type SupplierPaymentAccount =
+  | {
+      type: "mobile";
+      provider: "bkash" | "nagad" | "rocket" | "other";
+      accountNumber: string;
+    }
+  | { type: "bank"; bankName: string; accountNumber: string };
 export interface RawSupplier {
   id: string;
   version: number;
@@ -9,6 +16,7 @@ export interface RawSupplier {
   address: string;
   kinds: string[];
   bkash: string;
+  paymentAccount?: SupplierPaymentAccount | null;
   note: string;
   opening: number;
   active: boolean;
@@ -27,7 +35,13 @@ export interface RawLocation {
   id: string;
   version: number;
   name: string;
-  kind: "store" | "freezer" | "kitchen";
+  kind:
+    | "store"
+    | "freezer"
+    | "kitchen"
+    | "preparation"
+    | "cold_store"
+    | "other";
   active: boolean;
 }
 export interface RawCatalog {

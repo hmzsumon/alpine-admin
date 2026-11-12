@@ -1,5 +1,7 @@
 /* ── Component: MenuItemForm ────────────────────────────────────────────── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 
 /* ────────── imports ────────── */
 import { useAdminContext } from "@/context/AdminContext";
@@ -115,14 +117,14 @@ export default function MenuItemForm() {
       </div>
       <label>
         Kitchen station *
-        <select
+        <SearchableSelect
           name="station"
           defaultValue={editing?.station || kitchens[0]?.id || ""}
         >
           {kitchens.map((s) => (
             <option key={s.id} value={s.id}>{s.name}</option>
           ))}
-        </select>
+        </SearchableSelect>
       </label>
       <label>
         Internal note

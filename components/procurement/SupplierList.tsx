@@ -1,5 +1,6 @@
 /* ── Component: SupplierList; one step of the independent purchasing workspace ── */
 "use client";
+import { supplierAccountLabel } from "./SupplierPaymentFields";
 import type { RawPanelProps } from "./panelTypes";
 import { Plus } from "lucide-react";
 import { taka } from "./shared";
@@ -58,6 +59,7 @@ export default function SupplierList({
                     <small>
                       {s.contact} · {s.address}
                     </small>
+                    <small>{supplierAccountLabel(s)}</small>
                   </td>
                   <td>
                     <strong className={balance > 0 ? "raw-amber" : "raw-green"}>

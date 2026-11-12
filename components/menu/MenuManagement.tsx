@@ -1,5 +1,7 @@
 /* ── Component: MenuManagement ────────────────────────────────────────────── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 
 /* ────────── imports ────────── */
 import { useState } from "react";
@@ -62,7 +64,7 @@ export default function MenuManagement() {
       <CategoryManagement />
       <div className="filters">
         <SearchBox value={search} onChange={setSearch} />
-        <select
+        <SearchableSelect
           aria-label="Category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -71,7 +73,7 @@ export default function MenuManagement() {
           {categories.map((c) => (
             <option key={c}>{c}</option>
           ))}
-        </select>
+        </SearchableSelect>
       </div>
       <div className="table-scroll">
         <table>

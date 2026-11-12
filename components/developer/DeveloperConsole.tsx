@@ -1,5 +1,7 @@
 /* ── Component: DeveloperConsole; preview then type confirmation before any reset ── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import DeveloperSeedCard, { type SeedInfo } from "./DeveloperSeedCard";
@@ -33,7 +35,7 @@ export default function DeveloperConsole({ owner }: { owner: string }) {
           <p className="info-note">{mode === "business" ? "অর্ডার, বিল, খরচ, স্টক হিসাব, KOT ও কর্মীর নোটিফিকেশন পরিষ্কার হবে। মেনু, দাম, টেবিল, কিচেন, প্রিন্টার ও কর্মীর অ্যাকাউন্ট থাকবে। স্টক শূন্য থেকে নতুন opening দিতে হবে।" : mode === "factory" ? "পুরোনো সেটআপ, হিসাব, non-owner কর্মী ও custom role সরিয়ে আপনার Excel ও প্রাইসের তালিকা মিলিয়ে সংরক্ষিত ডিফল্ট মেনু, কোড, কিচেন, টেবিল ও বন্ধ প্রিন্টার স্লট তৈরি হবে। বর্তমান Owner, developer lock, backup ও audit থাকবে।" : "বর্তমান অবস্থার backup নিয়ে নির্বাচিত snapshot ফিরবে। বর্তমান Owner-এর প্রবেশাধিকার থাকবে। পুরোনো print/push queue নিজে থেকে পাঠাবে না; চলমান অর্ডার মিলিয়ে নিন।"}</p>
           <p className="info-note">ক্রয় ও স্টোরের স্বতন্ত্র খাতা business / factory reset-এ মুছবে না। নতুন ব্যাকআপে এই খাতাও থাকে; Restore করলে সংরক্ষিত অবস্থাটি ফিরবে।</p>
           <p className="muted">রিসেট / Restore-এর পরে অন্যদের আবার লগইন করতে হবে। পুরোনো অর্ডার নিজে থেকে আবার আসবে না। ফোনে 1.9.1 বা নতুন APK ব্যবহার করুন।</p>
-          {mode === "restore" && <label>ব্যাকআপ<select value={backupId} onChange={e => { setBackupId(e.target.value); setPlan(undefined); }}><option value="">বাছুন</option>{status.backups.map(b => <option key={b._id} value={b._id}>{date(b.at)} · {b.kind}</option>)}</select></label>}
+          {mode === "restore" && <label>ব্যাকআপ<SearchableSelect value={backupId} onChange={e => { setBackupId(e.target.value); setPlan(undefined); }}><option value="">বাছুন</option>{status.backups.map(b => <option key={b._id} value={b._id}>{date(b.at)} · {b.kind}</option>)}</SearchableSelect></label>}
           <button className="secondary" disabled={!!busy || !status.maintenance || status.activeWork > 0 || !status.transactions || !status.services.backupEncryption || (mode === "restore" && !backupId)} onClick={() => void act("preview", async () => { setPlan(await request("preview", { mode, backupId })); setConfirmation(""); })}>কী বদলাবে দেখুন</button>
           {plan && <div className="dev-confirm"><strong>বর্তমানে {plan.counts.orders}টি অর্ডার · {plan.counts.menu}টি আইটেম · {plan.counts.users}টি অ্যাকাউন্ট</strong><label>নিশ্চিত হলে লিখুন: {plan.phrase}<input value={confirmation} autoComplete="off" onChange={e => setConfirmation(e.target.value)} /></label><button className="delete-order-confirm" disabled={!!busy || confirmation !== plan.phrase} onClick={() => void act("execute", async () => { const r = await request("execute", { token: plan.token, confirmation }); setPlan(undefined); setConfirmation(""); await load(); setNotice("কাজ শেষ। আগের অবস্থার backup: " + r.backupId + "। এখন Maintenance বন্ধ করুন।"); })}>{busy === "execute" ? "Backup ও কাজ চলছে…" : "নিশ্চিত করে কার্যকর করুন"}</button></div>}
         </section>

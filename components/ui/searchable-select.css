@@ -1,0 +1,185 @@
+/* ────────── floating dropdown stays visible above scrollable tables and dialogs ────────── */
+.search-select {
+  display: block;
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  font-weight: normal;
+  text-align: left;
+}
+.search-select-trigger {
+  width: 100%;
+  min-height: 40px;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel, #20202f);
+  color: var(--text, #f3f3f8);
+  border: 1px solid var(--border, var(--line, #323245));
+  border-radius: 7px;
+  padding: 11px 13px;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  line-height: 1.6;
+}
+.search-select-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+.search-select-trigger > svg {
+  flex-shrink: 0;
+  color: var(--muted, #9595ac);
+}
+.search-select-trigger:focus-visible,
+.search-select-trigger[aria-expanded="true"] {
+  outline: 2px solid var(--green, #19c396);
+  outline-offset: 1px;
+}
+.search-select-placeholder {
+  color: var(--muted, #9595ac);
+}
+label > .search-select {
+  margin-top: 7px;
+}
+.search-select-popup {
+  position: fixed;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #45455b;
+  border-radius: 12px;
+  box-shadow: 0 16px 45px #0009;
+  background: var(--panel, #20202f);
+  color: var(--text, #f3f3f8);
+  text-align: left;
+  font-family: inherit;
+  isolation: isolate;
+}
+.search-select-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border, var(--line, #323245));
+  flex-shrink: 0;
+  color: var(--muted, #9595ac);
+}
+.search-select-search input {
+  width: 100% !important;
+  min-width: 0;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--text, #f3f3f8);
+  padding: 4px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font: inherit;
+  font-size: 13px;
+  height: 30px;
+}
+.search-select-search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: inherit;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 5px;
+}
+.search-select-options {
+  overflow: auto;
+  overscroll-behavior: contain;
+  min-height: 0;
+  flex: 1;
+}
+.search-select-options > button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 10px 12px;
+  background: transparent;
+  border: 0;
+  color: var(--text, #f3f3f8);
+  text-align: left;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.7;
+  border-radius: 0;
+}
+.search-select-options > button > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.search-select-options > button > svg {
+  flex-shrink: 0;
+  color: var(--green, #19c396);
+}
+.search-select-options > button.is-highlighted {
+  background: #19c3961f;
+}
+.search-select-options > button[aria-selected="true"] {
+  color: var(--green, #19c396);
+  background: #19c39612;
+}
+.search-select-options > button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.search-select-count {
+  padding: 7px 12px;
+  font-size: 10px;
+  color: var(--muted, #9595ac);
+  border-top: 1px solid var(--border, var(--line, #323245));
+  flex-shrink: 0;
+}
+.search-select-empty {
+  padding: 22px 12px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted, #9595ac);
+}
+.search-select-error {
+  color: #f08e9a;
+  font-size: 11px;
+  display: block;
+  margin-top: 4px;
+}
+.filters > .search-select {
+  width: auto;
+  min-width: 155px;
+  max-width: 280px;
+}
+.inventory-link-add > .search-select {
+  flex: 1;
+}
+.inventory-linked-items .search-select {
+  min-width: 160px;
+}
+.table-scroll td .search-select {
+  min-width: 150px;
+}
+.menu-import-settings .search-select {
+  min-width: 180px;
+}
+
+/* Linked-item controls must fit the existing narrow stock form rows. */
+.form-grid > label, .form-grid > div { min-width: 0; }
+.inventory-linked-items > div { flex-wrap: wrap; }
+.inventory-linked-items > div > span { min-width: 80px; overflow-wrap: anywhere; }
+.inventory-linked-items label { width: 180px; max-width: calc(100% - 40px); flex-shrink: 0; }
+.inventory-linked-items .search-select { min-width: 0; }

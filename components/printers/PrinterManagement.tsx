@@ -1,5 +1,7 @@
 /* ── Component: PrinterManagement ────────────────────────────────────────────── */
 "use client";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
 import KotQueue from "@/components/printers/KotQueue";
 
 /* ────────── imports ────────── */
@@ -65,7 +67,7 @@ export default function PrinterManagement() {
             <p>
               {p.floor} · {stationName(p.station)}
             </p>
-            <label>কিচেন / কাউন্টার<select name="station" defaultValue={p.station}>{kitchens.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}<option value="Cash Counter">Cash Counter</option>{!kitchens.some((k) => k.id === p.station) && p.station !== "Cash Counter" && <option value={p.station}>{p.station} (ডিলিট করা কিচেন)</option>}</select></label>
+            <label>কিচেন / কাউন্টার<SearchableSelect name="station" defaultValue={p.station}>{kitchens.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}<option value="Cash Counter">Cash Counter</option>{!kitchens.some((k) => k.id === p.station) && p.station !== "Cash Counter" && <option value={p.station}>{p.station} (ডিলিট করা কিচেন)</option>}</SearchableSelect></label>
             <label>
               Printer IP address
               <input

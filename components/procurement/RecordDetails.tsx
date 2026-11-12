@@ -255,7 +255,7 @@ export default function RecordDetails({
             মূল রেকর্ড থাকবে। উল্টো হিসাব যোগ হয়ে পাওনা ঠিক হবে। এটি
             বিকাশ/ব্যাংকে আসল টাকা ফেরত পাঠায় না।
           </p>
-          <DateNote date={data.date} noteRequired />
+          <DateNote date={data.date} noteRequired reasonType="payment_void" />
           <label className="check-label">
             <input type="checkbox" required />
             এই পেমেন্টটি ভুল এন্ট্রি হয়েছে—বাতিল নিশ্চিত করছি

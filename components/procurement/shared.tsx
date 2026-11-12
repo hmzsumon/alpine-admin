@@ -1,6 +1,8 @@
 /* ────────── Bengali labels and small reusable controls ────────── */
 "use client";
-import type { ReactNode } from "react";
+import SearchableSelect from "@/components/ui/SearchableSelect";
+
+import { useState, type ReactNode } from "react";
 import { X, Plus, Trash2 } from "lucide-react";
 import type { RawView } from "@/types/procurement";
 export const units: Record<string, string> = {
@@ -11,6 +13,15 @@ export const units: Record<string, string> = {
   portion: "পোরশন",
   pack: "প্যাক",
 };
+/* ────────── physical locations; preparation rooms share the normal stock movement flow ────────── */
+export const locationKinds = {
+  store: "স্টোর",
+  freezer: "ফ্রিজ",
+  kitchen: "কিচেন",
+  preparation: "কাটিং / প্রস্তুতকরণ",
+  cold_store: "কোল্ড স্টোর",
+  other: "অন্যান্য",
+} as const;
 export const stages: Record<string, string> = {
   raw: "কাঁচা",
   processed: "পরিষ্কার/কাটা",
@@ -167,12 +178,117 @@ export function Num({
     </label>
   );
 }
+/* ────────── preset reasons preserve readable audit notes without repetitive typing ────────── */
+const reasonPresets: Record<string, readonly string[]> = {
+  cook: [
+    "নিয়মিত রান্নার জন্য",
+    "নতুন ব্যাচ রান্না",
+    "চাহিদা অনুযায়ী অতিরিক্ত রান্না",
+  ],
+  process: [
+    "রান্নার জন্য কাটা / পরিষ্কার",
+    "ফ্রিজে সংরক্ষণের জন্য প্রসেসিং",
+    "মাছের পিস ও মাথা আলাদা করা",
+  ],
+  opening: ["সিস্টেম চালুর আগে থেকে থাকা স্টক", "আগের দিনের অবশিষ্ট স্টক"],
+  consume: [
+    "রান্না / কাজে ব্যবহার",
+    "খাবার বিক্রি / পরিবেশন",
+    "স্টাফের খাবার",
+    "নষ্ট / ব্যবহার অনুপযোগী",
+    "পড়ে গিয়ে নষ্ট",
+  ],
+  supplier_return: [
+    "পণ্যের মান ভালো নয়",
+    "ভুল পণ্য এসেছে",
+    "বেশি মাল এসেছে",
+    "নষ্ট / ক্ষতিগ্রস্ত পণ্য",
+  ],
+  resolve: [
+    "পাঠানো ও পাওয়া পরিমাণে অমিল",
+    "মাল মূল স্থানে ফেরত এসেছে",
+    "পরিবহনের সময় নষ্ট",
+    "মাল হারিয়েছে",
+  ],
+  adjustment: [
+    "আগের হিসাবের ভুল সংশোধন",
+    "ব্যাপারীর দেওয়া ছাড়",
+    "বিলের অমিল সমন্বয়",
+  ],
+  demand_close: [
+    "প্রয়োজনীয় মাল পাওয়া সম্পন্ন",
+    "বাকি মাল আর প্রয়োজন নেই",
+    "ব্যাপারী মাল দিতে পারবেন না",
+  ],
+  payment_void: [
+    "একই পেমেন্ট দুবার এন্ট্রি হয়েছে",
+    "টাকার পরিমাণ ভুল হয়েছে",
+    "ভুল ব্যাপারীর নামে এন্ট্রি হয়েছে",
+    "পেমেন্ট বাস্তবে হয়নি",
+  ],
+};
+function ReasonField({ context }: { context: string }) {
+  const options = reasonPresets[context] || [
+    "নিয়মিত কাজের হিসাব",
+    "আগের হিসাব সংশোধন",
+  ];
+  // Routine cooking needs no typing; exceptional/accounting actions require an explicit choice.
+  const [selected, setSelected] = useState(
+    context === "cook" || context === "process" ? options[0] : "",
+  );
+  const [detail, setDetail] = useState("");
+  const other = selected === "other";
+  return (
+    <div>
+      <label>
+        কারণ বাছুন *
+        <SearchableSelect
+          required
+          value={selected}
+          onChange={(e) => setSelected(e.target.value)}
+        >
+          <option value="">কারণ নির্বাচন করুন</option>
+          {options.map((reason) => (
+            <option key={reason} value={reason}>
+              {reason}
+            </option>
+          ))}
+          <option value="other">অন্যান্য — নিজে লিখব</option>
+        </SearchableSelect>
+      </label>
+      <label>
+        {other ? "আপনার কারণ লিখুন *" : "বাড়তি বিবরণ (ঐচ্ছিক)"}
+        <input
+          value={detail}
+          onChange={(e) => setDetail(e.target.value)}
+          required={other}
+          maxLength={350}
+          placeholder={
+            other ? "কারণ লিখুন" : "প্রয়োজন হলে লিখুন; ফাঁকা রাখতে পারেন"
+          }
+          autoComplete="off"
+        />
+      </label>
+      <input
+        type="hidden"
+        name="note"
+        value={
+          other
+            ? detail.trim()
+            : selected + (detail.trim() ? " — " + detail.trim() : "")
+        }
+      />
+    </div>
+  );
+}
 export function DateNote({
   date,
   noteRequired = false,
+  reasonType = "general",
 }: {
   date: string;
   noteRequired?: boolean;
+  reasonType?: string;
 }) {
   return (
     <div className="form-grid">
@@ -183,11 +299,11 @@ export function DateNote({
         required
         defaultValue={date}
       />
-      <Field
-        label={noteRequired ? "বিবরণ / কারণ *" : "বিবরণ / মন্তব্য"}
-        name="note"
-        required={noteRequired}
-      />
+      {noteRequired ? (
+        <ReasonField key={reasonType} context={reasonType} />
+      ) : (
+        <Field label="বিবরণ / মন্তব্য (ঐচ্ছিক)" name="note" />
+      )}
     </div>
   );
 }
@@ -257,7 +373,7 @@ export function Lines({
               return (
                 <tr key={i}>
                   <td>
-                    <select
+                    <SearchableSelect
                       required
                       value={line.productId}
                       onChange={(e) => change(i, { productId: e.target.value })}
@@ -270,7 +386,7 @@ export function Lines({
                             {p.code} · {p.name} · {units[p.unit]}
                           </option>
                         ))}
-                    </select>
+                    </SearchableSelect>
                     {p && <small>{stages[p.stage]}</small>}
                   </td>
                   <td>
@@ -382,7 +498,7 @@ export function StockSelect({
   return (
     <label>
       কোন ব্যাচের স্টক থেকে?
-      <select required value={value} onChange={(e) => change(e.target.value)}>
+      <SearchableSelect required value={value} onChange={(e) => change(e.target.value)}>
         <option value="">স্টক লাইন বাছুন</option>
         {data.balances
           .filter((b) => !b.locationId.startsWith("transit:"))
@@ -391,12 +507,12 @@ export function StockSelect({
               p = data.catalog.products.find((p) => p.id === lot?.productId);
             return (
               <option key={b._id} value={b._id}>
-                {p?.name} · {locationName(data, b.locationId)} ·{" "}
+                {p?.code ? `#${p.code} · ` : ""}{p?.name} · {locationName(data, b.locationId)} ·{" "}
                 {amount(b.quantity)} {units[p?.unit || ""]} · {lot?.batch}
               </option>
             );
           })}
-      </select>
+      </SearchableSelect>
     </label>
   );
 }
@@ -414,7 +530,7 @@ export function LocationSelect({
   return (
     <label>
       {name === "to" ? "কোথায় পাঠাবেন?" : "কোথায় রাখবেন?"}
-      <select name={name} required defaultValue={defaultValue}>
+      <SearchableSelect name={name} required defaultValue={defaultValue}>
         <option value="">স্থান বাছুন</option>
         {data.catalog.locations
           .filter((l) => l.active && l.id !== exclude)
@@ -423,7 +539,7 @@ export function LocationSelect({
               {l.name}
             </option>
           ))}
-      </select>
+      </SearchableSelect>
     </label>
   );
 }
