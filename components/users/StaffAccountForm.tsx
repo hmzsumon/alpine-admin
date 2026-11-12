@@ -1,6 +1,7 @@
 /* ── Component: StaffAccountForm ─────────────────────────────────────── */
 "use client";
 import SearchableSelect from "@/components/ui/SearchableSelect";
+import PasswordInput from "@/components/ui/PasswordInput";
 
 import { useState } from "react";
 import type { AuthUser, StaffRole } from "@/types/auth";
@@ -22,7 +23,7 @@ export default function StaffAccountForm({ staff, roles, busy, save, cancel }: {
     <label>মোবাইল নম্বর — লগইন আইডি<input name="phone" type="tel" required autoComplete="off" placeholder="01712345678" defaultValue={staff?.phone} /></label>
     {!staff && <label>ইমেইল (ঐচ্ছিক)<input name="email" type="email" autoComplete="off" /></label>}
     <label>রোল<SearchableSelect name="role" value={selectedRole} onChange={e => setSelectedRole(e.target.value)}>{roles.filter((r) => r.active).map((r) => <option key={r.id} value={r.id}>{r.name}{r.builtin ? "" : " · Custom"}</option>)}</SearchableSelect></label>
-    <label>{staff ? "নতুন পাসওয়ার্ড (বদলাতে চাইলে দিন)" : "পাসওয়ার্ড"}<input name="password" type="password" required={!staff} minLength={minimum} maxLength={72} autoComplete="new-password" /><small className="item-note">কমপক্ষে {minimum} অক্ষর; চাইলে আরও বড় দিন।</small></label>
+    <label>{staff ? "নতুন পাসওয়ার্ড (বদলাতে চাইলে দিন)" : "পাসওয়ার্ড"}<PasswordInput name="password" required={!staff} minLength={minimum} maxLength={72} autoComplete="new-password" /><small className="item-note">কমপক্ষে {minimum} অক্ষর; চাইলে আরও বড় দিন।</small></label>
     {staff?.role !== "owner" && <label className="check-label"><input type="checkbox" name="canDeleteOrders" defaultChecked={staff?.canDeleteOrders || false} />অর্ডার ডিলিটের দায়িত্ব দিন</label>}
     <p className="muted">এই দায়িত্ব থাকলে অ্যাডমিনে সব অর্ডার দেখা ও ডিলিট করা যাবে। রোল থেকেও অনুমতি দেওয়া যায়; সে ক্ষেত্রে তুলতে রোলের অনুমতিও সরাতে হবে।</p>
     <AssignmentPicker selectedStations={stations} tables={tables} onStations={setStations} onTables={setTables} />
